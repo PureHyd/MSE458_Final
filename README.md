@@ -6,6 +6,7 @@ MSE 458 for Juncen and Chulin
 
 2. (optional) Memorize your git password
 > git config credential.helper store
+
 > git push https://github.com/PureHyd/MSE458_Final.git 
 
 3. Update (Remember to update every time!):
