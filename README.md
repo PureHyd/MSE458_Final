@@ -22,4 +22,4 @@ MSE 458 for Juncen and Chulin
 7. Upload online (Now we've improved!):
 > git push origin master
 
-8. Repeat steps 3~7 :)
+8. Repeat steps 3~7 :+1:
