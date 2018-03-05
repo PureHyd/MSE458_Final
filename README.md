@@ -9,6 +9,8 @@ MSE 458 for Juncen and Chulin
 
 > git push https://github.com/PureHyd/MSE458_Final.git 
 
+
+
 3. Update (Remember to update every time!):
 > git fetch origin
 
@@ -22,5 +24,7 @@ MSE 458 for Juncen and Chulin
 
 7. Upload online (Now we've improved!):
 > git push origin master
+
+
 
 8. Repeat steps 3~7 :+1:
