@@ -12,7 +12,7 @@ MSE 458 for Juncen and Chulin
 
 
 3. Update (Remember to update every time!):
-> git fetch origin
+> git pull
 
 4. Edit... Do all the work...
 
