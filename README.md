@@ -5,10 +5,10 @@ MSE 458 for Juncen and Chulin
 > git clone https://github.com/PureHyd/MSE458_Final.git
 
 2. (optional) Memorize your git password
-> git config credential.helper store.
-> git push https://github.com/PureHyd/MSE458_Final.git 
-> git config --global user.name "*Your ame*"
-> git config --global user.email *you@example.com*
+> git config credential.helper store.\
+> git push https://github.com/PureHyd/MSE458_Final.git \
+> git config --global user.name "*Your name*"\
+> git config --global user.email *you@example.com*\
 
 
 3. Update (Remember to update every time!):
