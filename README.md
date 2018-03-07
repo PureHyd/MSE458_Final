@@ -33,4 +33,6 @@ MSE 458 for Juncen and Chulin
 9. Repeat steps 3~8 :+1:
 
 
-By the way, you can all check recent uploads by clicking the "_Commits_" button above the green line on this page.
+By the way, you can all check recent uploads by clicking the "**Commits**" button above the green line on this page.
+
+Use `module load python` before running a python code!
