@@ -1,7 +1,7 @@
 # MSE458 Final
 MSE 458 for Juncen and Chulin
 
-1. Download:
+1. Download
 > git clone https://github.com/PureHyd/MSE458_Final.git
 
 2. (optional) Memorize your git password
@@ -11,16 +11,16 @@ MSE 458 for Juncen and Chulin
 > git config --global user.email *[you@example.com]*
 
 
-3. Update (Remember to update every time!):
+3. Update (**Remember to update every time!**)
 > git pull
 
 4. Edit... Do all the work...
 
-5. After you finish, Show status (Show What have been changed):
-> git status
+5. Add **all** files into the next commit (next upload):
+> git add -A
 
-6. It will say anything you have not uploaded
-> git add *[Filename or Folder]*
+6. After you add all files, show status (Tell you What have been changed):
+> git status
 
 7. Add changes with descriptions (Just log what you have done):
 > git commit -am "*[Message]*"
@@ -30,4 +30,7 @@ MSE 458 for Juncen and Chulin
 
 
 
-9. Repeat steps 3~7 :+1:
+9. Repeat steps 3~8 :+1:
+
+
+By the way, you can all check recent uploads by clicking the "_Commits_" button above the green line on this page.
