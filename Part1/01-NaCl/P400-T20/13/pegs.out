@@ -1,0 +1,1178 @@
+*************************************************
+*	pack	(version 4.12.0.5)
+*	Eric Majzoub
+*	Sandia National Laboratories
+*************************************************
+*  Source file: main.c
+*  Compile date: Dec 27 2012
+*  Compile time: 17:19:04
+*  commandline = /projects/e20438/bin/pack-4.12.0.5/pack_exe -f ../../NaCl_pegs.in -P -R -r 400 -t 20 -g 24673 
+*  input file = ../../NaCl_pegs.in
+**********************************************************************
+**********************************************************************
+**********************************************************************
+* 
+*       - General run comments -
+* 
+* WARN: no Rotations in Metropolis (-R flag).
+* WARN: all anionic charge on center atom (-P flag).
+*
+**********************************************************************
+*           - Input parameters -
+*
+*           restart  =         0         1 = restart calc
+*        autoadjust  =         1   automatically set temp
+*          aa_using  =         1        1=rej pct, 2=pCnt
+*         basin hop  =         0           number of hops
+*     non_per_ewald  =         0          1=nanopart calc
+*
+*             lat a  =   10.0000
+*             lat b  =   10.0000
+*             lat c  =   10.0000
+*             alpha  =    1.5708
+*             beta   =    1.5708
+*             gamma  =    1.5708
+*          cell vol  = 1000.0000
+*      sqsh vol pct  =    0.2000
+* 
+*          cell_min  =    1.6700              min lat vec
+*          cell_max  =  167.0000              max lat vec
+* 
+*         n_type_an  =         1          num type anions
+*            num_an  =         1           tot num anions
+* 
+*          num_an_1  =         1        num anions type 1
+*        num_vert_1  =         1     1=sph 2=dim 5=tet...
+*       an_chrg_c_1  =   -1.0000      anion center charge
+*       an_chrg_v_1  =    0.0000      anion vertex charge
+*     tot_an_chrg_1  =   -1.0000       total anion charge
+*           Rcent_1  =    1.6700         anion center rad
+*           Rvert_1  =    0.0000         anion vertex rad
+*             cvd_1  =    0.0000        cent to vert dist
+*           Zcent_1  =        17           anion center Z
+*           Zvert_1  =         0           anion vertex Z
+* 
+*          num_an_2  =         0        num anions type 2
+*        num_vert_2  =         0     1=sph 2=dim 5=tet...
+*       an_chrg_c_2  =    0.0000      anion center charge
+*       an_chrg_v_2  =    0.0000      anion vertex charge
+*     tot_an_chrg_2  =    0.0000       total anion charge
+*           Rcent_2  =    0.0000         anion center rad
+*           Rvert_2  =    0.0000         anion vertex rad
+*             cvd_2  =    0.0000        cent to vert dist
+*           Zcent_2  =         0           anion center Z
+*           Zvert_2  =         0           anion vertex Z
+* 
+*         n_type_ca  =         1            num type cats
+*            num_ca  =         1          tot num cations
+* 
+*          num_ca_1  =         1        num cations typ 1
+*         ca_chrg_1  =    1.0000        cation chrg typ 1
+*            Rcat_1  =    1.1600         cation rad typ 1
+*            Zcat_1  =        11           cation Z typ 1
+* 
+*            C2VTOL  =  1.00e-08            c2v tolerance
+*            ERRLIM  =  1.00e-06
+*       REP_EPSILON  =  1.00e+00        soft sphere repul
+*    TRANS_FRAC_MAX  =    0.5000                    fixed
+*    TRANS_FRAC_MIN  =    0.0200
+*      MAX_ANG_CHNG  =    9.9695                  degrees
+*    VOLUM_FRAC_MAX  =    0.0700
+*         EXT_PRESS  =  0.00e+00        external pressure
+*      SQSH_VOL_PCT  =    0.2000             min orth val
+*        ASPECT_MAX  =   20.0000                cell parm
+*            dplane  =    1.6700            min plane sep
+*      SCALE_FACTOR  =    1.2500         bhop max scaling
+* 
+*            d.o.f.  =        12       degrees of freedom
+*          runs/dof  =       400         loops per d.o.f.
+*              runs  =      4800              loops per T
+*               ncc  =     19200     config changes per T
+*            t_runs  =        20           num temp steps
+*             efunc  =         0               0=SS  1=LJ
+*       N_HALT_CHNG  =        15      halts after N 100%s
+*
+*      anneal_sched  =         3   0=lin or exp(-run_n^n)
+*         temp_init  =  1.00e+00             initial temp
+*         temp_finl  =  1.00e-03               final temp
+* 
+*          trn_chng  =         1              0=off  1=on
+*          rot_chng  =         0              0=off  1=on
+*          lat_chng  =         1              0=off  1=on
+*          swp_chng  =         1              0=off  1=on
+* 
+*     SIMP_RESTARTS  =        11     no. simplex restarts
+*  SIMP_RESTARTS BH  =        21  basin hop simp restarts
+*         SIMP_NMAX  =      4500        max simplex iters
+*          SIMP_DEG  =    1.0000          anion start deg
+*         SIMP_LAMB  =    0.0100        vertex start frac
+*       SIMP_ERRLIM  =  1.00e-08              error limit
+* 
+*           aa runs  =      1200           config changes
+*      aa runs_step  =        10   config change increase
+*       aa runs_max  =      1500  max auto config changes
+*         aa t_runs  =         3            num temp runs
+*      aa temp_step  =    0.5000                temp step
+* 
+*        aa chng hi  =         3  1=trn 2=rot 3=lat 4=swp
+*        aa chng lo  =         3  1=trn 2=rot 3=lat 4=swp
+* 
+*      aa ht_pct_hi  =     0.650             high rej pct
+*      aa ht_pct_lo  =     0.600             low  rej pct
+* 
+*      aa lt_pct_hi  =     0.999             high rej pct
+*      aa lt_pct_lo  =     0.950             low  rej pct
+* 
+*            tmpfile =                   PR19997-best.tmp
+* 
+* Checking for out of bounds fractional coords.
+*
+**********************************************************************
+*
+*          - Parameters at START -
+*
+* Lattice parameters:
+*
+*             lat a  =   10.0000
+*             lat b  =   10.0000
+*             lat c  =   10.0000
+*             alpha  =   90.0000
+*             beta   =   90.0000
+*             gamma  =   90.0000
+*          cell vol  = 1000.0000
+*          cv/ortho  =    1.0000
+*
+* Energies:
+*               ecc  = -5.3503e-01
+*               eng  =  0.0000e+00
+*
+*
+* Geometry:
+*
+*      packing frac  =    0.0260
+*      aspect ratio  =    1.0000
+*
+* (dE/dV):
+*                Px  =  9.4114e-05                    x-dir
+*                Py  = -2.3449e-05                    y-dir
+*                Pz  =  4.6435e-04                    z-dir
+*
+* Distances (PBC only):
+*                                 min           hard           diff
+*           ca1_ca1  =   1.000000e+06   2.320000e+00   9.999977e+05
+*           ca1_ca2  =   1.000000e+06   1.160000e+00   9.999988e+05
+*           ca1_ac1  =   4.502523e+00   2.830000e+00   1.672523e+00
+*           ca1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca1_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_ca2  =   1.000000e+06   0.000000e+00   1.000000e+06
+*           ca2_ac1  =   1.000000e+06   1.670000e+00   9.999983e+05
+*           ca2_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_ac1  =   1.000000e+06   3.340000e+00   9.999967e+05
+*           ac1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av2_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*
+*
+*
+**********************************************************************
+*
+* ------------------------------------------------------------
+*              Autoadjust high temperatrure:
+* ------------------------------------------------------------
+*              Autoadjusting on 3 (1=trn,2=rot,3=lat,4=swp)
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  1.0000e+00
+*   autoadjust_temp_step  =  5.0000e-01
+*        autoadjust_runs  =        1200         configs per temp
+*       autoadjust_count  =           1
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1200              loops per T
+*               T_0  = 1.000e+00             initial temp
+*               T_L  = 1.000e+00               final temp
+*           T_alpha  = 8.000e+09          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  1.00e+00  -7.140e-01  +0.000e+00    191.64   9.557e-02    1.402     0.680   1.012e-01    38.00     0.00     3.92     0.00
+*T   2  1.00e+00  -5.289e-01  +0.000e+00    151.19   7.976e-02    1.796     0.548   2.857e-01    42.67     0.00     4.17     0.00
+*T   3  1.00e+00  -3.446e-01  +0.000e+00   1423.48   9.404e-02    3.708     0.245   1.135e-01    25.25     0.00     3.75     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [1] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % =  3.750000
+*     Autoadjust: Lowering the temperature 5.000e-01 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  5.0000e-01
+*   autoadjust_temp_step  =  5.0000e-01
+*        autoadjust_runs  =        1210         configs per temp
+*       autoadjust_count  =           2
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1210              loops per T
+*               T_0  = 5.000e-01             initial temp
+*               T_L  = 4.995e-01               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  5.00e-01  -5.843e-01  +0.000e+00    856.52   1.972e-02    2.866     0.451   1.747e-01    23.47     0.00     3.64     0.00
+*T   2  5.00e-01  -3.965e-01  +0.000e+00    762.42   9.169e-03    3.669     0.246   5.013e-01    40.66     0.00     3.31     0.00
+*T   3  4.99e-01  -8.787e-01  +0.000e+00    217.94   2.581e-02    1.359     0.648   2.311e-01    27.02     0.00     4.71     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [2] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % =  4.710744
+*     Autoadjust: special case: (T-Tstep) = 0.000e+00 [a.u.]
+*     Autoadjust: special case: ===> drop temp step to: 2.250e-01 [a.u.]
+*     Autoadjust: Lowering the temperature 2.250e-01 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  2.7500e-01
+*   autoadjust_temp_step  =  2.2500e-01
+*        autoadjust_runs  =        1220         configs per temp
+*       autoadjust_count  =           3
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1220              loops per T
+*               T_0  = 2.750e-01             initial temp
+*               T_L  = 2.747e-01               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  2.75e-01  -9.077e-01  +0.000e+00     90.87   5.499e-02    1.532     0.499   2.605e-01    47.70     0.00     6.31     0.00
+*T   2  2.75e-01  -6.081e-01  +0.000e+00    237.39   9.767e-02    1.985     0.773   3.898e-01    56.31     0.00     8.11     0.00
+*T   3  2.75e-01  -6.281e-01  +0.000e+00    455.57   1.156e-01    2.037     0.791   5.698e-01    65.25     0.00    12.54     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [3] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % = 12.540984
+*     Autoadjust: Lowering the temperature 2.250e-01 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  5.0000e-02
+*   autoadjust_temp_step  =  2.2500e-01
+*        autoadjust_runs  =        1230         configs per temp
+*       autoadjust_count  =           4
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1230              loops per T
+*               T_0  = 5.000e-02             initial temp
+*               T_L  = 4.995e-02               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  5.00e-02  -9.152e-01  +0.000e+00    118.94   1.069e-01    1.329     0.610   1.749e+00    89.02     0.00    28.70     0.00
+*T   2  5.00e-02  -8.939e-01  +0.000e+00    158.02   9.114e-02    1.328     0.465   2.518e+00    85.12     0.00    28.29     0.00
+*T   3  5.00e-02  -1.094e+00  +0.000e+00     65.01   1.479e-01    1.278     0.529   6.007e+00    89.11     0.00    28.86     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [4] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % = 28.861789
+*     Autoadjust: special case: (T-Tstep) = -1.750e-01 [a.u.]
+*     Autoadjust: special case: ===> drop temp step to: 1.013e-01 [a.u.]
+*     Autoadjust: special case: (T-Tstep) = -5.125e-02 [a.u.]
+*     Autoadjust: special case: ===> drop temp step to: 4.556e-02 [a.u.]
+*     Autoadjust: Lowering the temperature 4.556e-02 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  4.4375e-03
+*   autoadjust_temp_step  =  4.5563e-02
+*        autoadjust_runs  =        1240         configs per temp
+*       autoadjust_count  =           5
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1240              loops per T
+*               T_0  = 4.438e-03             initial temp
+*               T_L  = 4.433e-03               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  4.44e-03  -1.168e+00  +0.000e+00     48.53   3.011e-01    1.465     0.457   3.251e+01   100.00     0.00    80.56     0.00
+*T   2  4.44e-03  -1.127e+00  +0.000e+00     55.74   3.013e-01    1.423     0.491   1.495e+01   100.00     0.00    84.27     0.00
+*T   3  4.43e-03  -1.107e+00  +0.000e+00     61.33   2.730e-01    1.452     0.492   5.018e+00   100.00     0.00    85.89     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [5] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % = 85.887097
+*     Autoadjust: overshot! drop temp step to: 2.050e-02 [a.u.]
+*     Autoadjust: Raising the temperature 2.050e-02 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  2.4941e-02
+*   autoadjust_temp_step  =  2.0503e-02
+*        autoadjust_runs  =        1250         configs per temp
+*       autoadjust_count  =           6
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1250              loops per T
+*               T_0  = 2.494e-02             initial temp
+*               T_L  = 2.492e-02               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  2.49e-02  -1.061e+00  +0.000e+00     57.30   1.724e-01    1.560     0.692   3.644e+00    97.04     0.00    45.12     0.00
+*T   2  2.49e-02  -1.085e+00  +0.000e+00     68.02   1.951e-01    1.314     0.523   3.219e+00    97.44     0.00    52.32     0.00
+*T   3  2.49e-02  -1.070e+00  +0.000e+00     70.74   1.918e-01    1.117     0.418   2.779e+00    97.92     0.00    52.16     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [6] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % = 52.160000
+*     Autoadjust: overshot! drop temp step to: 9.226e-03 [a.u.]
+*     Autoadjust: Lowering the temperature 9.226e-03 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  1.5714e-02
+*   autoadjust_temp_step  =  9.2264e-03
+*        autoadjust_runs  =        1260         configs per temp
+*       autoadjust_count  =           7
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1260              loops per T
+*               T_0  = 1.571e-02             initial temp
+*               T_L  = 1.570e-02               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  1.57e-02  -1.019e+00  +0.000e+00     77.97   2.063e-01    1.269     0.326   9.558e+00    98.33     0.00    65.16     0.00
+*T   2  1.57e-02  -1.121e+00  +0.000e+00     59.65   1.993e-01    1.143     0.613   8.143e+00    97.62     0.00    59.37     0.00
+*T   3  1.57e-02  -1.129e+00  +0.000e+00     61.67   2.255e-01    1.167     0.580   4.756e+00    99.13     0.00    65.16     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [7] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % = 65.158730
+*     Autoadjust: overshot! drop temp step to: 4.152e-03 [a.u.]
+*     Autoadjust: Raising the temperature 4.152e-03 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  1.9866e-02
+*   autoadjust_temp_step  =  4.1519e-03
+*        autoadjust_runs  =        1270         configs per temp
+*       autoadjust_count  =           8
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1270              loops per T
+*               T_0  = 1.987e-02             initial temp
+*               T_L  = 1.985e-02               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  1.99e-02  -1.102e+00  +0.000e+00     60.57   1.908e-01    1.126     0.757   4.047e+00    98.50     0.00    49.69     0.00
+*T   2  1.99e-02  -1.019e+00  +0.000e+00     89.57   2.137e-01    1.252     0.722   4.969e+00    97.95     0.00    55.91     0.00
+*T   3  1.98e-02  -1.097e+00  +0.000e+00     64.11   2.095e-01    1.333     0.862   2.948e+00    97.64     0.00    54.80     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [8] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % = 54.803150
+*     Autoadjust: overshot! drop temp step to: 1.868e-03 [a.u.]
+*     Autoadjust: Lowering the temperature 1.868e-03 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  1.7998e-02
+*   autoadjust_temp_step  =  1.8683e-03
+*        autoadjust_runs  =        1280         configs per temp
+*       autoadjust_count  =           9
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1280              loops per T
+*               T_0  = 1.800e-02             initial temp
+*               T_L  = 1.798e-02               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  1.80e-02  -1.037e+00  +0.000e+00     66.64   2.354e-01    1.499     0.573   6.911e+00    99.30     0.00    58.91     0.00
+*T   2  1.80e-02  -1.040e+00  +0.000e+00     89.73   1.834e-01    1.147     0.818   3.548e+00    97.58     0.00    56.56     0.00
+*T   3  1.80e-02  -1.004e+00  +0.000e+00     72.28   2.233e-01    1.782     0.685   4.889e+00    99.22     0.00    59.45     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [9] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % = 59.453125
+*     Autoadjust: Lowering the temperature 1.868e-03 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  1.6129e-02
+*   autoadjust_temp_step  =  1.8683e-03
+*        autoadjust_runs  =        1290         configs per temp
+*       autoadjust_count  =          10
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1290              loops per T
+*               T_0  = 1.613e-02             initial temp
+*               T_L  = 1.611e-02               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  1.61e-02  -1.109e+00  +0.000e+00     60.32   2.084e-01    1.418     0.587   1.118e+01    98.76     0.00    56.05     0.00
+*T   2  1.61e-02  -1.157e+00  +0.000e+00     58.63   2.386e-01    1.291     0.682   2.816e+00    99.22     0.00    65.04     0.00
+*T   3  1.61e-02  -1.138e+00  +0.000e+00     55.02   2.288e-01    1.193     0.780   2.400e+00    99.69     0.00    62.87     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [10] OUT --
+*
+*     target: lo % = 60.000000      hi % = 65.000000
+*     Autoadjust % = 62.868217
+*     Autoadjust: temp = 1.613e-02  is good!  Exiting autoadjust.
+*
+**********************************************************************
+*
+* ------------------------------------------------------------
+*              Autoadjust low temperatrure:
+* ------------------------------------------------------------
+*              Autoadjusting on 3 (1=trn,2=rot,3=lat,4=swp)
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  2.0000e-02
+*   autoadjust_temp_step  =  5.0000e-01
+*        autoadjust_runs  =        1200         configs per temp
+*       autoadjust_count  =           1
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1200              loops per T
+*               T_0  = 2.000e-02             initial temp
+*               T_L  = 2.000e-02               final temp
+*           T_alpha  = 1.600e+08          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  2.00e-02  -1.100e+00  +0.000e+00     61.13   2.426e-01    1.128     0.847   1.757e+00    99.75     0.00    55.33     0.00
+*T   2  2.00e-02  -1.152e+00  +0.000e+00     54.62   2.608e-01    1.059     0.822   4.055e+00    99.67     0.00    59.50     0.00
+*T   3  2.00e-02  -1.104e+00  +0.000e+00     53.57   2.577e-01    1.108     0.958   2.919e+00    99.67     0.00    59.58     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [1] OUT --
+*
+*     target: lo % = 95.000000      hi % = 99.900000
+*     Autoadjust % = 59.583333
+*     Autoadjust: special case: (T-Tstep) = -4.800e-01 [a.u.]
+*     Autoadjust: special case: ===> drop temp step to: 2.250e-01 [a.u.]
+*     Autoadjust: special case: (T-Tstep) = -2.050e-01 [a.u.]
+*     Autoadjust: special case: ===> drop temp step to: 1.013e-01 [a.u.]
+*     Autoadjust: special case: (T-Tstep) = -8.125e-02 [a.u.]
+*     Autoadjust: special case: ===> drop temp step to: 4.556e-02 [a.u.]
+*     Autoadjust: special case: (T-Tstep) = -2.556e-02 [a.u.]
+*     Autoadjust: special case: ===> drop temp step to: 2.050e-02 [a.u.]
+*     Autoadjust: special case: (T-Tstep) = -5.031e-04 [a.u.]
+*     Autoadjust: special case: ===> drop temp step to: 9.226e-03 [a.u.]
+*     Autoadjust: Lowering the temperature 9.226e-03 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  1.0774e-02
+*   autoadjust_temp_step  =  9.2264e-03
+*        autoadjust_runs  =        1210         configs per temp
+*       autoadjust_count  =           2
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1210              loops per T
+*               T_0  = 1.077e-02             initial temp
+*               T_L  = 1.076e-02               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  1.08e-02  -1.155e+00  +0.000e+00     43.96   3.011e-01    1.447     0.559   9.166e+00    99.75     0.00    70.50     0.00
+*T   2  1.08e-02  -1.122e+00  +0.000e+00     48.80   3.389e-01    1.453     0.507   2.565e+00    99.92     0.00    74.96     0.00
+*T   3  1.08e-02  -1.198e+00  +0.000e+00     39.49   3.437e-01    1.421     0.498   4.436e+00    99.92     0.00    75.29     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [2] OUT --
+*
+*     target: lo % = 95.000000      hi % = 99.900000
+*     Autoadjust % = 75.289256
+*     Autoadjust: Lowering the temperature 9.226e-03 [a.u.]
+*
+**********************************************************************
+*
+*                 -- Autoadjust Metropolis Run --
+*
+*   autoadjust_temp_init  =  1.5472e-03
+*   autoadjust_temp_step  =  9.2264e-03
+*        autoadjust_runs  =        1220         configs per temp
+*       autoadjust_count  =           3
+*
+**********************************************************************
+*
+* Metropolis: 3 temperature runs with these parameters:
+*
+*              runs  =      1220              loops per T
+*               T_0  = 1.547e-03             initial temp
+*               T_L  = 1.546e-03               final temp
+*           T_alpha  = 7.996e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*T   1  1.55e-03  -1.208e+00  +0.000e+00     38.53   4.361e-01    1.418     0.499   1.694e+02   100.00     0.00    94.75     0.00
+*T   2  1.55e-03  -1.209e+00  +0.000e+00     38.38   4.408e-01    1.421     0.502   1.802e+00   100.00     0.00    96.23     0.00
+*T   3  1.55e-03  -1.205e+00  +0.000e+00     38.79   4.416e-01    1.438     0.506   1.026e+00   100.00     0.00    96.64     0.00
+*
+**********************************************************************
+*
+*                 -- AUTOADJUST [3] OUT --
+*
+*     target: lo % = 95.000000      hi % = 99.900000
+*     Autoadjust % = 96.639344
+*     Autoadjust: temp = 1.547e-03  is good!  Exiting autoadjust.
+*
+**********************************************************************
+*
+*
+*          -- Initializing cell contents --
+*
+*
+*
+**********************************************************************
+*
+*            -- Starting Metropolis calculation --
+*
+*              temp_init  = 1.613e-02
+*
+**********************************************************************
+*
+* Metropolis: 20 temperature runs with these parameters:
+*
+*              runs  =      4800              loops per T
+*               T_0  = 1.613e-02             initial temp
+*               T_L  = 1.547e-03               final temp
+*           T_alpha  = 2.926e+03          annealing alpha
+*
+*            T = T_0 * exp( -run_num**3 / T_alpha )
+*
+**********************************************************************
+*H run      Temp       E_ion        E_ss   cel vol       SigPF       ar     ortho        pCnt          % Rejected Changes
+*H                                                                                                 trn      rot      lat      swp
+*M   1  1.61e-02  -1.080e+00  +0.000e+00    110.42   2.262e-01    1.892     0.810   2.924e+01    98.85     0.00    62.19     0.00
+*M   2  1.61e-02  -1.064e+00  +0.000e+00     66.50   2.513e-01    1.501     0.569   6.786e+00    99.21     0.00    63.02     0.00
+*M   3  1.61e-02  -1.110e+00  +0.000e+00     52.89   2.464e-01    1.694     0.599   5.108e+00    99.58     0.00    57.54     0.00
+*M   4  1.60e-02  -1.119e+00  +0.000e+00     63.60   2.106e-01    1.186     0.818   5.142e+00    99.31     0.00    60.85     0.00
+*M   5  1.58e-02  -1.090e+00  +0.000e+00     62.47   2.313e-01    1.531     0.688   5.407e+00    99.19     0.00    62.31     0.00
+*M   6  1.55e-02  -1.074e+00  +0.000e+00     64.13   2.431e-01    1.142     0.911   5.492e+00    99.40     0.00    64.79     0.00
+*M   7  1.50e-02  -1.106e+00  +0.000e+00     50.37   2.412e-01    1.383     0.859   5.690e+00    99.56     0.00    63.92     0.00
+*M   8  1.43e-02  -1.100e+00  +0.000e+00     70.17   2.211e-01    1.240     0.637   7.876e+00    99.21     0.00    62.10     0.00
+*M   9  1.35e-02  -1.101e+00  +0.000e+00     58.44   2.649e-01    1.623     0.628   7.485e+00    99.62     0.00    70.90     0.00
+*M  10  1.26e-02  -1.132e+00  +0.000e+00     57.47   2.659e-01    1.119     0.771   6.260e+00    99.79     0.00    71.29     0.00
+*M  11  1.15e-02  -1.139e+00  +0.000e+00     52.26   2.672e-01    1.088     0.916   4.050e+00    99.81     0.00    71.54     0.00
+*M  12  1.02e-02  -1.112e+00  +0.000e+00     69.08   2.672e-01    1.199     0.724   4.784e+00    99.83     0.00    71.69     0.00
+*M  13  8.94e-03  -1.132e+00  +0.000e+00     57.30   2.502e-01    1.390     0.639   3.524e+00    99.88     0.00    76.60     0.00
+*M  14  7.61e-03  -1.136e+00  +0.000e+00     55.44   2.982e-01    1.391     0.638   3.491e+00   100.00     0.00    83.06     0.00
+*M  15  6.31e-03  -1.188e+00  +0.000e+00     47.69   3.237e-01    1.374     0.576   7.911e+00    99.98     0.00    86.60     0.00
+*M  16  5.09e-03  -1.172e+00  +0.000e+00     49.60   3.363e-01    1.432     0.621   5.021e+00   100.00     0.00    88.69     0.00
+*M  17  3.98e-03  -1.185e+00  +0.000e+00     48.63   3.468e-01    1.411     0.595   7.661e+00   100.00     0.00    92.27     0.00
+*M  18  3.01e-03  -1.187e+00  +0.000e+00     48.82   3.550e-01    1.359     0.597   3.694e+00   100.00     0.00    93.23     0.00
+*M  19  2.20e-03  -1.202e+00  +0.000e+00     46.16   3.678e-01    1.439     0.592   1.026e+01    99.98     0.00    95.35     0.02
+*M  20  1.55e-03  -1.208e+00  +0.000e+00     45.21   3.765e-01    1.463     0.598   3.083e+00   100.00     0.00    96.77     0.00
+*
+**********************************************************************
+*
+*
+*          - Parameters at Post Ewald-Metro -
+*
+* Lattice parameters:
+*
+*             lat a  =    3.8873
+*             lat b  =    3.6469
+*             lat c  =    5.3361
+*             alpha  =  110.7661
+*             beta   =  114.9186
+*             gamma  =  116.8860
+*          cell vol  =   45.2099
+*          cv/ortho  =    0.5976
+*
+* Energies:
+*               ecc  = -1.2079e+00
+*               eng  =  0.0000e+00
+*
+*
+* Geometry:
+*
+*      packing frac  =    0.5761
+*      aspect ratio  =    1.4632
+*
+* (dE/dV):
+*                Px  =  9.2935e-03                    x-dir
+*                Py  =  6.0059e-03                    y-dir
+*                Pz  =  1.1418e-02                    z-dir
+*
+* Distances (PBC only):
+*                                 min           hard           diff
+*           ca1_ca1  =   1.000000e+06   2.320000e+00   9.999977e+05
+*           ca1_ca2  =   1.000000e+06   1.160000e+00   9.999988e+05
+*           ca1_ac1  =   2.847033e+00   2.830000e+00   1.703323e-02
+*           ca1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca1_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_ca2  =   1.000000e+06   0.000000e+00   1.000000e+06
+*           ca2_ac1  =   1.000000e+06   1.670000e+00   9.999983e+05
+*           ca2_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_ac1  =   1.000000e+06   3.340000e+00   9.999967e+05
+*           ac1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av2_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*
+*
+*
+**********************************************************************
+*
+*         - Comparing with 'best' structure -
+*
+****************************************************************
+*
+*          best ecc  = -1.2116e+00
+*          best eng  =  0.0000e+00
+*           ecc+eng  = -1.2116e+00
+*          best vol  =  4.4877e+01
+*           best pf  =  5.8041e-01
+*
+*     post_runs ecc  = -1.2079e+00
+*     post_runs eng  =  0.0000e+00
+*           ecc+eng  = -1.2079e+00
+*     post_runs vol  =  4.5210e+01
+*      post_runs pf  =  5.7614e-01
+*
+*       dV / V_runs  =  7.3584e-03
+*
+*          ecc_diff  = -3.7263e-03
+*          eng_diff  =  0.0000e+00
+*
+*
+****************************************************************
+*
+*  mag_ecc_diff > mag_eng_diff AND within BEST_VOL AND
+* 'best' has lower energy than post runs! --> swapping.
+*
+****************************************************************
+*
+*
+*          - Parameters at Post 'best-swap' -
+*
+* Lattice parameters:
+*
+*             lat a  =    3.8828
+*             lat b  =    3.6475
+*             lat c  =    5.3021
+*             alpha  =  110.7661
+*             beta   =  114.9186
+*             gamma  =  116.8860
+*          cell vol  =   44.8772
+*          cv/ortho  =    0.5976
+*
+* Energies:
+*               ecc  = -1.2116e+00
+*               eng  =  0.0000e+00
+*
+*
+* Geometry:
+*
+*      packing frac  =    0.5804
+*      aspect ratio  =    1.4536
+*
+* (dE/dV):
+*                Px  =  9.4525e-03                    x-dir
+*                Py  =  6.1603e-03                    y-dir
+*                Pz  =  1.1385e-02                    z-dir
+*
+* Distances (PBC only):
+*                                 min           hard           diff
+*           ca1_ca1  =   1.000000e+06   2.320000e+00   9.999977e+05
+*           ca1_ca2  =   1.000000e+06   1.160000e+00   9.999988e+05
+*           ca1_ac1  =   2.830747e+00   2.830000e+00   7.472995e-04
+*           ca1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca1_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_ca2  =   1.000000e+06   0.000000e+00   1.000000e+06
+*           ca2_ac1  =   1.000000e+06   1.670000e+00   9.999983e+05
+*           ca2_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_ac1  =   1.000000e+06   3.340000e+00   9.999967e+05
+*           ac1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av2_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*
+*
+*
+**********************************************************************
+*
+*         - Final Simplex relaxation with restarts -
+*
+**********************************************************************
+*
+*
+****************************************************************
+*
+*
+*        - Simplex Minimiziation Routine -
+*
+*
+* Note: No aspect ratio constraint.
+*
+*
+*            n_simp  =        15                   D.O.F.
+*         simp_nmax  =      4500                max moves
+*       simp_errlim  =  1.00e-08
+*
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5336e+00   0.58041   1.45362   0.59763    -1.2116056e+00     0.0000000e+00    -1.2116056e+00
+*X      2000     8.2128e-07   0.58225   1.44681   0.59488    -1.2138996e+00     0.0000000e+00    -1.2138996e+00
+*
+*         simp_runs  =      3472               simp moves
+*              rtol  =  9.08e-09               final rtol
+*
+* Simplex restart no. 1 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5626e+00   0.58228   1.44683   0.59487    -1.2139220e+00     0.0000000e+00    -1.2139220e+00
+*
+*         simp_runs  =      1050               simp moves
+*              rtol  =  9.48e-09               final rtol
+*
+* Simplex restart no. 2 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5626e+00   0.58228   1.44678   0.59481    -1.2139314e+00     0.0000000e+00    -1.2139314e+00
+*X      2000     2.4495e-07   0.58064   1.43538   0.59076    -1.2143708e+00     0.0000000e+00    -1.2143708e+00
+*
+*         simp_runs  =      2162               simp moves
+*              rtol  =  9.94e-09               final rtol
+*
+* Simplex restart no. 3 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        12     1.5060e+00   0.58064   1.43538   0.59076    -1.2143708e+00     0.0000000e+00    -1.2143708e+00
+*
+*         simp_runs  =      1707               simp moves
+*              rtol  =  9.38e-09               final rtol
+*
+* Simplex restart no. 4 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5602e+00   0.58160   1.42841   0.58996    -1.2155682e+00     0.0000000e+00    -1.2155682e+00
+*X      2000     2.4575e-08   0.58167   1.42829   0.58987    -1.2156363e+00     0.0000000e+00    -1.2156363e+00
+*
+*         simp_runs  =      2043               simp moves
+*              rtol  =  9.76e-09               final rtol
+*
+* Simplex restart no. 5 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5627e+00   0.58167   1.42829   0.58987    -1.2156363e+00     0.0000000e+00    -1.2156363e+00
+*
+*         simp_runs  =       879               simp moves
+*              rtol  =  9.26e-09               final rtol
+*
+* Simplex restart no. 6 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5627e+00   0.58167   1.42829   0.58987    -1.2156363e+00     0.0000000e+00    -1.2156363e+00
+*
+*         simp_runs  =       889               simp moves
+*              rtol  =  9.83e-09               final rtol
+*
+* Simplex restart no. 7 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5627e+00   0.58167   1.42829   0.58987    -1.2156363e+00     0.0000000e+00    -1.2156363e+00
+*
+*         simp_runs  =       919               simp moves
+*              rtol  =  9.91e-09               final rtol
+*
+* Simplex restart no. 8 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5627e+00   0.58167   1.42829   0.58987    -1.2156363e+00     0.0000000e+00    -1.2156363e+00
+*
+*         simp_runs  =       901               simp moves
+*              rtol  =  9.90e-09               final rtol
+*
+* Simplex restart no. 9 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5627e+00   0.58167   1.42829   0.58987    -1.2156363e+00     0.0000000e+00    -1.2156363e+00
+*
+*         simp_runs  =       904               simp moves
+*              rtol  =  9.91e-09               final rtol
+*
+* Simplex restart no. 10 of 10
+*
+*         - Initializing simplex arrays -
+*
+*
+*      nfunk           rtol        pf        ar     ortho             e_ion              e_ss             e_tot
+*X        11     1.5627e+00   0.58167   1.42829   0.58987    -1.2156363e+00     0.0000000e+00    -1.2156363e+00
+*
+*         simp_runs  =       863               simp moves
+*              rtol  =  9.99e-09               final rtol
+*
+****************************************************************
+*
+*          - Parameters at Post Simplex -
+*
+* Lattice parameters:
+*
+*             lat a  =    3.8781
+*             lat b  =    3.7021
+*             lat c  =    5.2877
+*             alpha  =  111.5131
+*             beta   =  114.5536
+*             gamma  =  117.0224
+*          cell vol  =   44.7804
+*          cv/ortho  =    0.5899
+*
+* Energies:
+*               ecc  = -1.2156e+00
+*               eng  =  0.0000e+00
+*
+*
+* Geometry:
+*
+*      packing frac  =    0.5817
+*      aspect ratio  =    1.4283
+*
+* (dE/dV):
+*                Px  =  9.5913e-03                    x-dir
+*                Py  =  1.0000e+04                    y-dir
+*                Pz  =  1.0000e+04                    z-dir
+*
+* Distances (PBC only):
+*                                 min           hard           diff
+*           ca1_ca1  =   1.000000e+06   2.320000e+00   9.999977e+05
+*           ca1_ca2  =   1.000000e+06   1.160000e+00   9.999988e+05
+*           ca1_ac1  =   2.830000e+00   2.830000e+00   1.721794e-08
+*           ca1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca1_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_ca2  =   1.000000e+06   0.000000e+00   1.000000e+06
+*           ca2_ac1  =   1.000000e+06   1.670000e+00   9.999983e+05
+*           ca2_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ca2_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_ac1  =   1.000000e+06   3.340000e+00   9.999967e+05
+*           ac1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_ac2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           ac1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av1_av1  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av1_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*           av2_av2  =   1.000000e+06  -1.000000e+00   1.000001e+06
+*
+*
+***********************************************************
+*        - Process and timing information -
+*
+* user time:   0 h 00 m 18.722005 s
+* syst time:   0 h 00 m 00.014999 s
+* signals: 0
+* voluntary context switches: 8
+* involuntary context switches: 17
+*
+***********************************************************
+*SS symsearch output
+*SS ( use:  | awk '($1=="*S"){print $0}' | sed 's/*S //' > temp.out )
+*S Title
+*S 1                 search type
+*S 5.0 0.00001       displacement rms max min
+*S 0.1 0.00001       strain rms max min
+*S 1                 lattice input type
+*S      3.87812     0.00000     0.00000
+*S     -1.68200     3.29791     0.00000
+*S     -2.19725    -3.29732     3.50128
+*S 1 0 0
+*S 0 1 0
+*S 0 0 1
+*S 2                 number of atoms
+*S 11 0
+*S      0.40142     0.79576     0.40211
+*S      0.54464     0.62616     0.90224
+*FF findsym output
+*FF ( use:  | awk '($1=="*F"){print $0}' | sed 's/*F //' > temp.out )
+*F Title
+*F 0.001       displacement rms max min
+*F 1                 lattice input type
+*F      3.87812     0.00000     0.00000
+*F     -1.68200     3.29791     0.00000
+*F     -2.19725    -3.29732     3.50128
+*F 1               basis vector in type
+*F 1 0 0
+*F 0 1 0
+*F 0 0 1
+*F 2                 number of atoms
+*F 11 0
+*F      0.40142     0.79576     0.40211
+*F      0.54464     0.62616     0.90224
+*DD powder output
+*DD (use: | awk '($1=="*D"){print $0}' | sed 's/*D //' > temp.out )
+*D 2
+*D      3.87812     3.70207     5.28765
+*D    111.51308   114.55359   117.02241
+*D      0.40142     0.79576     0.40211        11
+*D      0.54464     0.62616     0.90224         0
+*PP poscar output
+*PP (use: | awk '($1=="*P"){print $0}' | sed 's/*P //' > temp.out )
+*P Z: 11 17 
+*P 1.0 
+*P      3.87811644     0.00000000     0.00000000
+*P     -1.68199630     3.29791442     0.00000000
+*P     -2.19725338    -3.29732462     3.50128456
+*P 1 1 0 
+*P Direct
+*P       0.401416026549      0.795757138538      0.402113880819
+*P       0.544642424893      0.626159942752      0.902240846697
+*QQ poscar output
+*QQ (use: | awk '($1=="*Q"){print $0}' | sed 's/*Q //' > temp.out )
+*Q +1.000000000000 -1.000000000000 
+*Q 1.0 
+*Q      3.87811644     0.00000000     0.00000000
+*Q     -1.68199630     3.29791442     0.00000000
+*Q     -2.19725338    -3.29732462     3.50128456
+*Q 1 1 0 
+*Q Direct
+*Q       0.401416026549      0.795757138538      0.402113880819
+*Q       0.544642424893      0.626159942752      0.902240846697
+*RR restart output
+*RR (use: | awk '($1=="*R"){print $0}' | sed 's/*R //' > temp.out )
+*R     3.878116437269    3.702073886170    5.287652186742
+*R     1.946270451677    1.999337389439    2.042426320184
+*R      1
+*R      1     1
+*R   -1.000000000000000   0.000000000000000
+*R     0.000000000000    1.670000000000    0.000000000000    17     0
+*R      1
+*R      1   1.000000000000000
+*R     1.160000000000    11
+*R     0.401416026549    0.795757138538    0.402113880819
+*R     0.544642424893    0.626159942752    0.902240846697
+* XBS output
+* CATION:
+atom C    -0.665268558    1.298438941    1.407915123
+spec C     1.160000000    1.000000000    0.000000000    0.000000000
+* ANION:
+atom A    -0.923463721   -0.909959052    3.159001947
+spec A     1.670000000    0.000000000    0.000000000    1.000000000
+spec V     0.000000000    0.000000000    1.000000000    0.000000000
+bonds A V  0.000000000    0.000000000    0.010000000    Black
+* CELL PARAMETERS AND BORDER
+atom 0    0.00000   0.00000   0.00000
+atom 1    3.87812   0.00000   0.00000
+atom 2    2.19612   3.29791   0.00000
+atom 3   -1.68200   3.29791   0.00000
+atom 4   -2.19725  -3.29732   3.50128
+atom 5    1.68086  -3.29732   3.50128
+atom 6   -0.00113   0.00059   3.50128
+atom 7   -3.87925   0.00059   3.50128
+spec 0     0.050000000    0.000000000    0.000000000    0.000000000
+spec 1     0.050000000    0.000000000    0.000000000    0.000000000
+spec 2     0.050000000    0.000000000    0.000000000    0.000000000
+spec 3     0.050000000    0.000000000    0.000000000    0.000000000
+spec 4     0.050000000    0.000000000    0.000000000    0.000000000
+spec 5     0.050000000    0.000000000    0.000000000    0.000000000
+spec 6     0.050000000    0.000000000    0.000000000    0.000000000
+spec 7     0.050000000    0.000000000    0.000000000    0.000000000
+bonds 0 1  3.874238321    3.881994554    0.010000000    Black
+bonds 3 2  3.874238321    3.881994554    0.010000000    Black
+bonds 4 5  3.874238321    3.881994554    0.010000000    Black
+bonds 6 7  3.874238321    3.881994554    0.010000000    Black
+bonds 1 2  3.698371812    3.705775960    0.010000000    Black
+bonds 0 3  3.698371812    3.705775960    0.010000000    Black
+bonds 5 6  3.698371812    3.705775960    0.010000000    Black
+bonds 4 7  3.698371812    3.705775960    0.010000000    Black
+bonds 0 4  5.282364535    5.292939839    0.010000000    Black
+bonds 1 5  5.282364535    5.292939839    0.010000000    Black
+bonds 2 6  5.282364535    5.292939839    0.010000000    Black
+bonds 3 7  5.282364535    5.292939839    0.010000000    Black
+inc 5.000000
+dup    3.87812   0.00000   0.00000
+dup   -1.68200   3.29791   0.00000
+dup   -2.19725  -3.29732   3.50128
