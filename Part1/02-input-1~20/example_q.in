@@ -1,0 +1,39 @@
+ &control
+    calculation = 'vc-relax',
+    restart_mode = 'from_scratch',
+    prefix = 'NaCl_pegs+pwscf',
+    tstress = .true.,
+    tprnfor = .true.,
+    pseudo_dir = '/projects/e20438/bin/espresso/pseudo',
+    outdir='./'
+ /
+ &system
+    ibrav =  0, 
+    nat =  2, 
+    ntyp = 2,
+    ecutwfc = 60.0,
+    ecutrho = 240.0
+ /
+ &electrons
+    diagonalization='cg',
+    mixing_mode = 'plain',
+    mixing_beta = 0.7,
+    conv_thr =  1.0d-8
+ /
+ &ions
+    ion_dynamics='bfgs'
+    trust_radius_min = 1.0d-8
+ /
+ &cell
+    cell_dynamics='bfgs'
+ /
+
+AAA
+
+ATOMIC_SPECIES
+ Na 22.98977 Na.pbe-spn-kjpaw_psl.0.2.UPF
+ Cl 35.4527 Cl.pbe-n-kjpaw_psl.0.1.UPF
+
+CCC
+
+BBB

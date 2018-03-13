@@ -1,0 +1,45 @@
+ &control
+    calculation = 'vc-relax',
+    restart_mode = 'from_scratch',
+    prefix = 'NaCl_pegs+pwscf',
+    tstress = .true.,
+    tprnfor = .true.,
+    pseudo_dir = '/projects/e20438/bin/espresso/pseudo',
+    outdir='./'
+ /
+ &system
+    ibrav =  0, 
+    nat =  2, 
+    ntyp = 2,
+    ecutwfc = 60.0,
+    ecutrho = 240.0
+ /
+ &electrons
+    diagonalization='cg',
+    mixing_mode = 'plain',
+    mixing_beta = 0.7,
+    conv_thr =  1.0d-8
+ /
+ &ions
+    ion_dynamics='bfgs'
+    trust_radius_min = 1.0d-8
+ /
+ &cell
+    cell_dynamics='bfgs'
+ /
+
+CELL_PARAMETERS angstrom
+    3.86767955000000  0.00000000000000 0.00000000000000
+    2.14743535000000  3.51942452000000 0.00000000000000
+    1.72013817000000 -1.04993232000000 3.31347005000000
+
+ATOMIC_SPECIES
+ Na 22.98977 Na.pbe-spn-kjpaw_psl.0.2.UPF
+ Cl 35.4527 Cl.pbe-n-kjpaw_psl.0.1.UPF
+
+ATOMIC_POSITIONS crystal
+    Na 0.65059148298700 0.20175586563500 0.73344313938200
+    Cl 0.65061902447600 0.70172457043100 0.23345112194400
+
+K_POINTS automatic
+4 5 6 0 0 0

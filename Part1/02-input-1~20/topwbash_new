@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#cd ~/final/P400-T15
+
+#for j in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
+#cd $j
+#~/final/scripts/pegs_output_to_pwscf.sh pegs.out Na Cl >pw.in$j
+#cd ..
+#done
+
+mkdir infiles
+
+for i in `seq 20`; do
+out="infiles/pw-${i}.in"
+#cell=$(head -10 pw.in$i | tail -4)
+#echo $cell
+#pos=$(tail -3 pw.in$i)
+
+cp ex1 $out
+head -10 pw.in$i | tail -4 >> $out
+cat $out ex2 > tmp
+tail -3 pw.in$i >> tmp
+kmesh=$(./k_mesh.sh 360 tmp | tail -1 | awk '{print "    "  $NF-2 "  " $NF-1 "  " $NF " 0  0  0"}')
+ktitle="  K_POINTS automatic"
+echo >> tmp
+echo $ktitle >> tmp
+echo $kmesh >> tmp
+mv tmp $out
+done
+
+#cd ~/final/P400-T15
+#for j in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
+#cd $j
+#touch "struc""$j"
+#~/final/scripts/pegs_output_to_vasp.sh  pegs.out Na Cl > struc$j
+#echo "dsdhhjfhj"
+#cd ..
+#done
+#module load intel/2016.0 
+#cd ~/final/P400-T15
+#for j in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
+#cd $j
+#echo "this id structure of ""$j"
+#echo " structure of 5" > relaxedstr
+#~/final/scripts/mint/mint  srtpw5 -conventional -about -tol 0.2 >> relaxedstr
+#cd ..
+#done
