@@ -27,7 +27,7 @@ do
                 sed "s/${ele1}/${i}/g" tmp1 > tmp2
                 sed "s/${ele2}/${j}/g" tmp2 >> $out
 
-                aa="pw-${i}-${j}-${b}"
+                aa="${i}-${j}-${b}"
                 sed "s/AAA/${aa}/g" pwscf.q > infiles/${i}/${j}/${aa}.q
                 rm tmp*
             done

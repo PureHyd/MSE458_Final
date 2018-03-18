@@ -17,4 +17,4 @@ module unload intel
 module unload mpi
 module load espresso
 
-mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < AAA.in > AAA.out
+mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-AAA.in > pw-AAA.out
