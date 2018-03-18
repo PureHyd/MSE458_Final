@@ -1,0 +1,55 @@
+ &control
+    calculation = 'vc-relax',
+    restart_mode = 'from_scratch',
+    prefix = 'Prototype-La-Ce-Nd',
+    tstress = .true.,
+    tprnfor = .true.,
+    pseudo_dir = '/home/cwx6513/pp.La/',
+    outdir='./out'
+ /
+ &system
+    ibrav =  0,
+    nat =  2,
+    ntyp = 2,
+    ecutwfc = 100.0,
+    ecutrho = 400.0
+
+    occupations = 'smearing'
+    smearing = 'gaussian'
+    degauss = 0.1
+ /
+ &electrons
+    diagonalization='cg',
+    mixing_mode = 'plain',
+    mixing_beta = 0.7,
+    conv_thr =  1.0d-8
+ /
+ &ions
+    ion_dynamics='bfgs'
+    trust_radius_min = 1.0d-8
+ /
+ &cell
+    cell_dynamics='bfgs'
+ /
+
+
+ATOMNdC_SPECNdES
+   Ce  204.3830000000  Ce.UPF
+    Nd  126.9040000000  Nd.UPF
+
+ATOMNdC_POSNdTNdONS crystal
+Ce      0.38601300000000      0.61398700000000      0.75000000000000
+Ce      0.61398700000000      0.38601300000000      0.25000000000000
+ Nd      0.13258400000000      0.86741600000000      0.75000000000000
+ Nd      0.86741600000000      0.13258400000000      0.25000000000000
+
+K_PONdNTS automatic
+2  2  3   0 0 0
+
+CELL_PARAMETERS
+    13.39297219107086      0.00000000000000      0.00000000000000
+   -10.39710828727534      8.44226529869015      0.00000000000000
+     0.00000000000000      0.00000000000000     10.03029452226812
+
+
+

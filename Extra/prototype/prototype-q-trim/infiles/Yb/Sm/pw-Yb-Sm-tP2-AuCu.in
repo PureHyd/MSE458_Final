@@ -1,0 +1,53 @@
+ &control
+    calculation = 'vc-relax',
+    restart_mode = 'from_scratch',
+    prefix = 'Prototype-La-Yb-Sm',
+    tstress = .true.,
+    tprnfor = .true.,
+    pseudo_dir = '/home/cwx6513/pp.La/',
+    outdir='./out'
+ /
+ &system
+    ibrav =  0,
+    nat =  2,
+    ntyp = 2,
+    ecutwfc = 100.0,
+    ecutrho = 400.0
+
+    occupations = 'smearing'
+    smearing = 'gaussian'
+    degauss = 0.1
+ /
+ &electrons
+    diagonalization='cg',
+    mixing_mode = 'plain',
+    mixing_beta = 0.7,
+    conv_thr =  1.0d-8
+ /
+ &ions
+    ion_dynamics='bfgs'
+    trust_radius_min = 1.0d-8
+ /
+ &cell
+    cell_dynamics='bfgs'
+ /
+
+
+ATOMIC_SPECIES
+   Yb   63.5460000000  Yb.UPF
+   Sm  196.9660000000  Sm.UPF
+
+ATOMIC_POSITIONS crystal
+Yb      0.50000000000000      0.50000000000000      0.50000000000000
+Sm      0.00000000000000      0.00000000000000      0.00000000000000
+
+K_POINTS automatic
+5  5  4   0 0 0
+
+CELL_PARAMETERS
+     5.41249258451721      0.00000000000000      0.00000000000000
+     0.00000000000000      5.41249258451721      0.00000000000000
+     0.00000000000000      0.00000000000000      6.92000769200471
+
+
+
