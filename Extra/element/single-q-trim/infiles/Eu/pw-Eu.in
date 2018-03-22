@@ -4,6 +4,7 @@
     prefix = 'Element-Eu.q',
     tstress = .true.,
     tprnfor = .true.,
+    wf_collect = .false.
     pseudo_dir = '/home/cwx6513/pp.La/',
     outdir='./out'
  /
@@ -11,8 +12,8 @@
     ibrav =  0,
     nat =  2,
     ntyp = 1,
-    ecutwfc = 80.0,
-    ecutrho = 320.0
+    ecutwfc = 40.0,
+    ecutrho = 160.0
 
     occupations = 'smearing'
     smearing = 'gaussian'
@@ -22,12 +23,11 @@
     diagonalization='cg',
     mixing_mode = 'plain',
     mixing_beta = 0.7,
-    conv_thr =  1.0d-6
+    conv_thr =  1.0d-4
  /
  &ions
     ion_dynamics='bfgs'
-    bfgs_ndim = 3
-    trust_radius_min = 1.0d-6
+    trust_radius_min = 1.0d3
  /
  &cell
     cell_dynamics='bfgs'
@@ -42,7 +42,7 @@ Eu      0.33333300000000      0.66666700000000      0.25000000000000
 Eu      0.66666700000000      0.33333300000000      0.75000000000000
 
 K_POINTS automatic
-    9  10  11 0  0  0
+    5  6  7 0  0  0
 
 CELL_PARAMETERS
      7.65463088056596      0.00000000000000      0.00000000000000

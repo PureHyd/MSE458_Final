@@ -23,9 +23,10 @@ do
 
                 nk_grep=$(grep -A2 K_POINTS tmp1 | tail -2 )
                 echo ${nk_grep}
-                new_nk=$(./k_mesh.sh 8000 tmp1 | tail -1 | awk '{print "    "  $NF-2 "  " $NF-1 "  " $NF " 0  0  0"}')
+                new_nk=$(./k_mesh.sh 2000 tmp1 | tail -1 | awk '{print "    "  $NF-2 "  " $NF-1 "  " $NF " 0  0  0"}')
                 echo ${new_nk}
                 sed "s/${nk_grep}/${new_nk}/g" tmp1 > $out
 
                 rm tmp*
 done
+cp z.run.sh infiles/

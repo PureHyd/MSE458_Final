@@ -4,15 +4,16 @@
     prefix = 'Prototype-La-AAA',
     tstress = .true.,
     tprnfor = .true.,
+    wf_collect = .false.
     pseudo_dir = '/home/cwx6513/pp.La/',
     outdir='./out'
  /
  &system
     ibrav =  0,
-    nat =  2,
+    nat =  BBB,
     ntyp = 2,
-    ecutwfc = 100.0,
-    ecutrho = 400.0
+    ecutwfc = 40.0,
+    ecutrho = 160.0
 
     occupations = 'smearing'
     smearing = 'gaussian'
@@ -22,11 +23,11 @@
     diagonalization='cg',
     mixing_mode = 'plain',
     mixing_beta = 0.7,
-    conv_thr =  1.0d-8
+    conv_thr =  1.0d-4
  /
  &ions
     ion_dynamics='bfgs'
-    trust_radius_min = 1.0d-8
+    trust_radius_min = 1.0d3
  /
  &cell
     cell_dynamics='bfgs'

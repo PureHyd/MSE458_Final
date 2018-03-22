@@ -1,5 +1,5 @@
 #!/bin/bash
-#MSUB -l nodes=1:ppn=20
+#MSUB -l nodes=1:ppn=4
 #MSUB -q short
 #MSUB -l walltime=4:00:00
 #MSUB -A e20438
