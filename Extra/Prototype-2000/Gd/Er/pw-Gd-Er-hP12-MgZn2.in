@@ -1,0 +1,64 @@
+ &control
+    calculation = 'vc-relax',
+    restart_mode = 'from_scratch',
+    prefix = 'Prototype-La-hP12-MgZn2',
+    tstress = .true.,
+    tprnfor = .true.,
+    wf_collect = .false.
+    pseudo_dir = '/home/cwx6513/pp.La/',
+    outdir='./hP12-MgZn2-out'
+ /
+ &system
+    ibrav =  0,
+    nat =  12,
+    ntyp = 2,
+    ecutwfc = 40.0,
+    ecutrho = 160.0
+
+    occupations = 'smearing'
+    smearing = 'gaussian'
+    degauss = 0.1
+ /
+ &electrons
+    diagonalization='cg',
+    mixing_mode = 'plain',
+    mixing_beta = 0.7,
+    conv_thr =  1.0d-4
+ /
+ &ions
+    ion_dynamics='bfgs'
+    trust_radius_min = 1.0d3
+ /
+ &cell
+    cell_dynamics='bfgs'
+ /
+
+
+ATOMIC_SPECIES
+   Mg   24.3050000000  Gd.UPF
+   Zn   65.3900000000  Er.UPF
+
+ATOMIC_POSITIONS crystal
+Mg      0.33333300000000      0.66666700000000      0.06241800000000
+Mg      0.66666700000000      0.33333300000000      0.56241800000000
+Mg      0.66666700000000      0.33333300000000      0.93758200000000
+Mg      0.33333300000000      0.66666700000000      0.43758200000000
+Zn      0.00000000000000      0.00000000000000      0.00000000000000
+Zn      0.00000000000000      0.00000000000000      0.50000000000000
+Zn      0.17036100000000      0.34072200000000      0.75000000000000
+Zn      0.82963900000000      0.17036100000000      0.25000000000000
+Zn      0.34072200000000      0.17036100000000      0.25000000000000
+Zn      0.65927800000000      0.82963900000000      0.75000000000000
+Zn      0.17036100000000      0.82963900000000      0.75000000000000
+Zn      0.82963900000000      0.65927800000000      0.25000000000000
+
+K_POINTS automatic
+    2  3  4 0  0  0
+
+CELL_PARAMETERS
+     9.92348860010504      0.00000000000000      0.00000000000000
+    -4.96174430005252      8.59399322185624      0.00000000000000
+     0.00000000000000      0.00000000000000     15.95917489590596
+
+
+
