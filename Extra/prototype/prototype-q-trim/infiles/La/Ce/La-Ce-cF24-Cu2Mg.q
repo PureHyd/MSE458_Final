@@ -18,3 +18,5 @@ module unload mpi
 module load espresso
 
 mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-La-Ce-cF24-Cu2Mg.in > pw-La-Ce-cF24-Cu2Mg.out
+
+rm -rf ./cF24-Cu2Mg-out/

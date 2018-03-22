@@ -18,3 +18,5 @@ module unload mpi
 module load espresso
 
 mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-La-Pr-tP2-AuCu.in > pw-La-Pr-tP2-AuCu.out
+
+rm -rf ./tP2-AuCu-out/

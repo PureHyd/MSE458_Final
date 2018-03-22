@@ -18,3 +18,5 @@ module unload mpi
 module load espresso
 
 mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-La-Ce-cP8-Cr3Si.in > pw-La-Ce-cP8-Cr3Si.out
+
+rm -rf ./cP8-Cr3Si-out/

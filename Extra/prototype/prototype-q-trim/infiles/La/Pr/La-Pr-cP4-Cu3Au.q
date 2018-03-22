@@ -18,3 +18,5 @@ module unload mpi
 module load espresso
 
 mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-La-Pr-cP4-Cu3Au.in > pw-La-Pr-cP4-Cu3Au.out
+
+rm -rf ./cP4-Cu3Au-out/

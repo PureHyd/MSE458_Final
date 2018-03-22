@@ -18,3 +18,5 @@ module unload mpi
 module load espresso
 
 mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-La-Pr-oP12-Co2Si.in > pw-La-Pr-oP12-Co2Si.out
+
+rm -rf ./oP12-Co2Si-out/

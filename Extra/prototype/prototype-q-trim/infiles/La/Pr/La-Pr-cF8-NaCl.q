@@ -18,3 +18,5 @@ module unload mpi
 module load espresso
 
 mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-La-Pr-cF8-NaCl.in > pw-La-Pr-cF8-NaCl.out
+
+rm -rf ./cF8-NaCl-out/

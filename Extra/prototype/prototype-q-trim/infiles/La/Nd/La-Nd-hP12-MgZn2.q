@@ -18,3 +18,5 @@ module unload mpi
 module load espresso
 
 mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-La-Nd-hP12-MgZn2.in > pw-La-Nd-hP12-MgZn2.out
+
+rm -rf ./hP12-MgZn2-out/

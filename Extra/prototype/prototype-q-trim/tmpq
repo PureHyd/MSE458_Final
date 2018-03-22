@@ -3,7 +3,7 @@
 #MSUB -q short
 #MSUB -l walltime=4:00:00
 #MSUB -A e20438
-#MSUB -N La-Pr-cF24-Cu2Mg
+#MSUB -N La-Nd-hP12-MgZn2
 
 cd $PBS_O_WORKDIR
 NPROCS=`wc -l < $PBS_NODEFILE`
@@ -17,6 +17,6 @@ module unload intel
 module unload mpi
 module load espresso
 
-mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-La-Pr-cF24-Cu2Mg.in > pw-La-Pr-cF24-Cu2Mg.out
+mpirun -machinefile $PBS_NODEFILE -np $NPROCS pw.x < pw-La-Nd-hP12-MgZn2.in > pw-La-Nd-hP12-MgZn2.out
 
-rm -rf ./cF24-Cu2Mg-out/
+rm -rf ./CCC-out/
