@@ -1,0 +1,36 @@
+ &control
+    calculation = 'vc-relax',
+    restart_mode = 'from_scratch',
+    prefix = 'Element-AAA',
+    tstress = .true.,
+    tprnfor = .true.,
+    pseudo_dir = '/home/cwx6513/pp.La/',
+    outdir='./out'
+ /
+ &system
+    ibrav =  0,
+    nat =  BBB,
+    ntyp = 1,
+    ecutwfc = 80.0,
+    ecutrho = 320.0
+
+    occupations = 'smearing'
+    smearing = 'gaussian'
+    degauss = 0.1
+ /
+ &electrons
+    diagonalization='cg',
+    mixing_mode = 'plain',
+    mixing_beta = 0.7,
+    conv_thr =  1.0d-6
+ /
+ &ions
+    ion_dynamics='bfgs'
+    bfgs_ndim = 3
+    trust_radius_min = 1.0d-6
+ /
+ &cell
+    cell_dynamics='bfgs'
+ /
+
+

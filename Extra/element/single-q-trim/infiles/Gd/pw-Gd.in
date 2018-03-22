@@ -1,0 +1,53 @@
+ &control
+    calculation = 'vc-relax',
+    restart_mode = 'from_scratch',
+    prefix = 'Element-Gd.q',
+    tstress = .true.,
+    tprnfor = .true.,
+    pseudo_dir = '/home/cwx6513/pp.La/',
+    outdir='./out'
+ /
+ &system
+    ibrav =  0,
+    nat =  2,
+    ntyp = 1,
+    ecutwfc = 80.0,
+    ecutrho = 320.0
+
+    occupations = 'smearing'
+    smearing = 'gaussian'
+    degauss = 0.1
+ /
+ &electrons
+    diagonalization='cg',
+    mixing_mode = 'plain',
+    mixing_beta = 0.7,
+    conv_thr =  1.0d-6
+ /
+ &ions
+    ion_dynamics='bfgs'
+    bfgs_ndim = 3
+    trust_radius_min = 1.0d-6
+ /
+ &cell
+    cell_dynamics='bfgs'
+ /
+
+
+ATOMIC_SPECIES
+   Gd  157.2500000000  Gd.UPF
+
+ATOMIC_POSITIONS crystal
+Gd      0.33333300000000      0.66666700000000      0.75000000000000
+Gd      0.66666700000000      0.33333300000000      0.25000000000000
+
+K_POINTS automatic
+    9  10  11 0  0  0
+
+CELL_PARAMETERS
+     6.87725815643671      0.00000000000000      0.00000000000000
+    -3.43862907821835      5.95588027185793      0.00000000000000
+     0.00000000000000      0.00000000000000     10.98298235461738
+
+
+
