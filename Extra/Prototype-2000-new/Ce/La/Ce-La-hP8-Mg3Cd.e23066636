@@ -1,0 +1,38 @@
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 0.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+pw.x               0000000000A6EEA7  Unknown               Unknown  Unknown
+pw.x               00000000009F5158  Unknown               Unknown  Unknown
+pw.x               000000000085A3CF  flush_unit_                22  flush_unit.f90
+pw.x               00000000007254DB  errore_                    72  error_handler.f90
+pw.x               00000000007BB277  read_namelists_mo        1924  read_namelists.f90
+pw.x               00000000007B43C1  read_input_mp_rea          64  read_input.f90
+pw.x               0000000000441336  MAIN__                     58  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002B185D3DBB35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 17706 on
+node qnode4214 exiting improperly. There are two reasons this could occur:
+
+1. this process did not call "init" before exiting, but others in
+the job did. This can cause a job to hang indefinitely while it waits
+for all processes to call "init". By rule, if one process calls "init",
+then ALL processes must call "init" prior to termination.
+
+2. this process called "init", but exited without calling "finalize".
+By rule, all processes that call "init" MUST call "finalize" prior to
+exiting or it will be considered an "abnormal termination"
+
+This may have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+[qnode4214:17704] 2 more processes have sent help message help-mpi-api.txt / mpi-abort
+[qnode4214:17704] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
