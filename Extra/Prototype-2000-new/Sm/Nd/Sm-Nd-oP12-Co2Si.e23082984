@@ -1,0 +1,81 @@
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            qnode6725
+  Device name:           mlx4_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4103
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+ from test_input_xml: Empty input file .. stopping
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+libmpi.so.1        00002AE909FF01C7  Unknown               Unknown  Unknown
+libmpi.so.1        00002AE909F192D4  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002AE912025A3E  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002AE91202E798  Unknown               Unknown  Unknown
+libmpi.so.1        00002AE909F284E0  Unknown               Unknown  Unknown
+libmpi_f77.so.1    00002AE909C9F323  Unknown               Unknown  Unknown
+pw.x               0000000000785258  bcast_integer_            112  mp_base.f90
+pw.x               0000000000768C97  mp_mp_mp_bcast_i1         298  mp.f90
+pw.x               00000000007B4339  read_input_mp_rea          51  read_input.f90
+pw.x               0000000000441336  MAIN__                     58  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002AE90B233B35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+libmpi.so.1        00002B8D4FEC61C7  Unknown               Unknown  Unknown
+libmpi.so.1        00002B8D4FDEF2D4  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002B8D57EFBA3E  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002B8D57F04798  Unknown               Unknown  Unknown
+libmpi.so.1        00002B8D4FDFE4E0  Unknown               Unknown  Unknown
+libmpi_f77.so.1    00002B8D4FB75323  Unknown               Unknown  Unknown
+pw.x               0000000000785258  bcast_integer_            112  mp_base.f90
+pw.x               0000000000768C97  mp_mp_mp_bcast_i1         298  mp.f90
+pw.x               00000000007B4339  read_input_mp_rea          51  read_input.f90
+pw.x               0000000000441336  MAIN__                     58  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002B8D51109B35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+libmpi.so.1        00002AC6CC0871BB  Unknown               Unknown  Unknown
+libmpi.so.1        00002AC6CBFB02D4  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002AC6D40BCA3E  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002AC6D40C5798  Unknown               Unknown  Unknown
+libmpi.so.1        00002AC6CBFBF4E0  Unknown               Unknown  Unknown
+libmpi_f77.so.1    00002AC6CBD36323  Unknown               Unknown  Unknown
+pw.x               0000000000785258  bcast_integer_            112  mp_base.f90
+pw.x               0000000000768C97  mp_mp_mp_bcast_i1         298  mp.f90
+pw.x               00000000007B4339  read_input_mp_rea          51  read_input.f90
+pw.x               0000000000441336  MAIN__                     58  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002AC6CD2CAB35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 9160 on
+node qnode6725 exiting improperly. There are two reasons this could occur:
+
+1. this process did not call "init" before exiting, but others in
+the job did. This can cause a job to hang indefinitely while it waits
+for all processes to call "init". By rule, if one process calls "init",
+then ALL processes must call "init" prior to termination.
+
+2. this process called "init", but exited without calling "finalize".
+By rule, all processes that call "init" MUST call "finalize" prior to
+exiting or it will be considered an "abnormal termination"
+
+This may have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+[qnode6725:09159] 3 more processes have sent help message help-mpi-btl-openib.txt / no device params found
+[qnode6725:09159] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
