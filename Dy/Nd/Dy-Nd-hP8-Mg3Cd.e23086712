@@ -1,0 +1,70 @@
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 0.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+mca_btl_sm.so      00002AD4F5DB7086  Unknown               Unknown  Unknown
+libmpi.so.1        00002AD4EEC3C242  Unknown               Unknown  Unknown
+libmpi.so.1        00002AD4EEB652D4  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002AD4F6C71A3E  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002AD4F6C7A798  Unknown               Unknown  Unknown
+libmpi.so.1        00002AD4EEB744E0  Unknown               Unknown  Unknown
+libmpi_f77.so.1    00002AD4EE8EB323  Unknown               Unknown  Unknown
+pw.x               0000000000785448  bcast_logical_            158  mp_base.f90
+pw.x               000000000076BB67  mp_mp_mp_bcast_l_         573  mp.f90
+pw.x               0000000000490980  move_ions_                271  move_ions.f90
+pw.x               0000000000441574  MAIN__                    139  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002AD4EFE7FB35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+libmpi.so.1        00002ABF7F384272  Unknown               Unknown  Unknown
+libmpi.so.1        00002ABF7F2AD2D4  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002ABF873B9A3E  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002ABF873C2798  Unknown               Unknown  Unknown
+libmpi.so.1        00002ABF7F2BC4E0  Unknown               Unknown  Unknown
+libmpi_f77.so.1    00002ABF7F033323  Unknown               Unknown  Unknown
+pw.x               0000000000785448  bcast_logical_            158  mp_base.f90
+pw.x               000000000076BB67  mp_mp_mp_bcast_l_         573  mp.f90
+pw.x               0000000000490980  move_ions_                271  move_ions.f90
+pw.x               0000000000441574  MAIN__                    139  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002ABF805C7B35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+libmpi.so.1        00002B340A7631BB  Unknown               Unknown  Unknown
+libmpi.so.1        00002B340A68C2D4  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002B3412798A3E  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002B34127A1798  Unknown               Unknown  Unknown
+libmpi.so.1        00002B340A69B4E0  Unknown               Unknown  Unknown
+libmpi_f77.so.1    00002B340A412323  Unknown               Unknown  Unknown
+pw.x               0000000000785448  bcast_logical_            158  mp_base.f90
+pw.x               000000000076BB67  mp_mp_mp_bcast_l_         573  mp.f90
+pw.x               0000000000490980  move_ions_                271  move_ions.f90
+pw.x               0000000000441574  MAIN__                    139  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002B340B9A6B35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 29684 on
+node qnode4124 exiting improperly. There are two reasons this could occur:
+
+1. this process did not call "init" before exiting, but others in
+the job did. This can cause a job to hang indefinitely while it waits
+for all processes to call "init". By rule, if one process calls "init",
+then ALL processes must call "init" prior to termination.
+
+2. this process called "init", but exited without calling "finalize".
+By rule, all processes that call "init" MUST call "finalize" prior to
+exiting or it will be considered an "abnormal termination"
+
+This may have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
