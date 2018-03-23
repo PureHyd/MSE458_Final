@@ -1,0 +1,55 @@
+ &control
+    calculation = 'vc-relax',
+    restart_mode = 'from_scratch',
+    prefix = 'Element-Dy.q',
+    tstress = .true.,
+    tprnfor = .true.,
+    wf_collect = .false.
+    pseudo_dir = '/home/cwx6513/pp.La/',
+    outdir='./out'
+ /
+ &system
+    ibrav =  0,
+    nat =  3,
+    ntyp = 1,
+    ecutwfc = 60.0,
+    ecutrho = 240.0
+
+    occupations = 'smearing'
+    smearing = 'gaussian'
+    degauss = 0.1
+ /
+ &electrons
+    diagonalization='cg',
+    mixing_mode = 'plain',
+    mixing_beta = 0.7,
+    conv_thr =  1.0d-6
+ /
+ &ions
+    ion_dynamics='bfgs'
+    trust_radius_min = 1.0d-2
+ /
+ &cell
+    cell_dynamics='bfgs'
+    cell_factor=4.0
+ /
+
+
+ATOMIC_SPECIES
+   Dy  162.5000000000  Dy.UPF
+
+ATOMIC_POSITIONS crystal
+Dy      0.00000000000000      0.00000000000000      0.00000000000000
+Dy      0.22205100000000      0.22205100000000      0.22205100000000
+Dy      0.77794900000000      0.77794900000000      0.77794900000000
+
+K_POINTS automatic
+    8  9  10 0  0  0
+
+CELL_PARAMETERS
+    16.65877720749524      0.00000000000000      0.00000000000000
+    15.29094716080414      6.61073316466933      0.00000000000000
+    15.29094716080414      3.16385738887408      5.80446374761060
+
+
+

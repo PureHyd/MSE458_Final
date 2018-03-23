@@ -1,0 +1,2492 @@
+
+     Program PWSCF v.5.0.2 starts on 23Mar2018 at 10:11:40 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote.php
+
+     Parallel version (MPI), running on     8 processors
+     R & G space division:  proc/nbgrp/npool/nimage =       8
+
+     Current dimensions of program PWSCF are:
+     Max number of different atomic species (ntypx) = 10
+     Max number of k-points (npk) =  40000
+     Max angular momentum in pseudopotentials (lmaxx) =  3
+     Waiting for input...
+     Reading input from standard input
+
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     scalapack distributed-memory algorithm (size of sub-group:  2*  2 procs)
+
+ 
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min         103     103     30                 7741     7741    1174
+     Max         107     107     31                 7744     7744    1181
+     Sum         835     835    241                61943    61943    9419
+ 
+
+
+     bravais-lattice index     =            0
+     lattice parameter (alat)  =       7.0732  a.u.
+     unit-cell volume          =     984.3927 (a.u.)^3
+     number of atoms/cell      =            4
+     number of atomic types    =            1
+     number of electrons       =        52.00
+     number of Kohn-Sham states=           31
+     kinetic-energy cutoff     =      60.0000  Ry
+     charge density cutoff     =     240.0000  Ry
+     convergence threshold     =      1.0E-06
+     mixing beta               =       0.7000
+     number of iterations used =            8  plain     mixing
+     Exchange-correlation      = SLA-PZ-NOGX-NOGC ( 1 1 0 0 0)
+     EXX-fraction              =        0.00
+     nstep                     =           50
+
+
+     celldm(1)=   7.073224  celldm(2)=   0.000000  celldm(3)=   0.000000
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (   1.000000   0.000000   0.000000 )  
+               a(2) = (  -0.500000   0.866025   0.000000 )  
+               a(3) = (   0.000000   0.000000   3.212074 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.000000  0.577350  0.000000 )  
+               b(2) = (  0.000000  1.154701  0.000000 )  
+               b(3) = (  0.000000  0.000000  0.311325 )  
+
+
+     PseudoPot. # 1 for Pr read from file:
+     /home/cwx6513/pp.La/Pr.UPF
+     MD5 check sum: 70e2b4b153859e92c8c91247dfc63203
+     Pseudo is Norm-conserving, Zval = 13.0
+     Generated in analytical, separable form
+     Using radial grid of 1255 points,  6 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+                l(5) =   2
+                l(6) =   3
+
+     atomic species   valence    mass     pseudopotential
+        Pr            13.00   140.90800     Pr( 1.00)
+
+     24 Sym. Ops., with inversion, found (12 have fractional translation)
+
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1           Pr  tau(   1) = (   0.0000000   0.0000000   0.0000000  )
+         2           Pr  tau(   2) = (   0.0000000   0.0000000   1.6060372  )
+         3           Pr  tau(   3) = (  -0.0000005   0.5773506   0.8030186  )
+         4           Pr  tau(   4) = (   0.5000005   0.2886748   2.4090558  )
+
+     number of k points=    12  gaussian smearing, width (Ry)=  0.1000
+                       cart. coord. in units 2pi/alat
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   0.0833333
+        k(    2) = (   0.0000000   0.0000000   0.0778313), wk =   0.1666667
+        k(    3) = (   0.0000000   0.0000000  -0.1556626), wk =   0.0833333
+        k(    4) = (   0.0000000   0.3849002   0.0000000), wk =   0.1666667
+        k(    5) = (   0.0000000   0.3849002   0.0778313), wk =   0.3333333
+        k(    6) = (   0.0000000   0.3849002  -0.1556626), wk =   0.1666667
+        k(    7) = (  -0.5000000  -0.2886751   0.0000000), wk =   0.0833333
+        k(    8) = (  -0.5000000  -0.2886751   0.0778313), wk =   0.1666667
+        k(    9) = (  -0.5000000  -0.2886751  -0.1556626), wk =   0.0833333
+        k(   10) = (  -0.5000000   0.0962250   0.0000000), wk =   0.1666667
+        k(   11) = (  -0.5000000   0.0962250   0.0778313), wk =   0.3333333
+        k(   12) = (  -0.5000000   0.0962250  -0.1556626), wk =   0.1666667
+
+     Dense  grid:    61943 G-vectors     FFT dimensions: (  36,  36, 120)
+
+     Largest allocated arrays     est. size (Mb)     dimensions
+        Kohn-Sham Wavefunctions         0.46 Mb     (    966,   31)
+        NL pseudopotentials             1.18 Mb     (    966,   80)
+        Each V/rho on FFT grid          0.30 Mb     (  19440)
+        Each G-vector array             0.06 Mb     (   7744)
+        G-vector shells                 0.06 Mb     (   7744)
+     Largest temporary arrays     est. size (Mb)     dimensions
+        Each subspace H/S matrix        0.00 Mb     (  15,  15)
+        Each <psi_i|beta_j> matrix      0.04 Mb     (     80,   31)
+        Arrays for rho mixing           2.37 Mb     (  19440,   8)
+
+     Initial potential from superposition of free atoms
+
+     starting charge   51.96217, renormalised to   52.00000
+     Starting wfc are   80 randomized atomic wfcs
+
+     total cpu time spent up to now is        2.1 secs
+
+     Self-consistent Calculation
+
+     iteration #  1     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.00E-02,  avg # of iterations =  2.4
+
+     total cpu time spent up to now is        3.8 secs
+
+     total energy              =    -369.13173643 Ry
+     Harris-Foulkes estimate   =    -377.63304650 Ry
+     estimated scf accuracy    <      11.24736880 Ry
+
+     iteration #  2     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.00E-02,  avg # of iterations =  4.1
+
+     total cpu time spent up to now is        6.2 secs
+
+     total energy              =    -371.48769892 Ry
+     Harris-Foulkes estimate   =    -371.77159086 Ry
+     estimated scf accuracy    <       0.55224399 Ry
+
+     iteration #  3     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.06E-03,  avg # of iterations =  3.6
+
+     total cpu time spent up to now is        7.8 secs
+
+     total energy              =    -371.61486877 Ry
+     Harris-Foulkes estimate   =    -371.61587526 Ry
+     estimated scf accuracy    <       0.02266596 Ry
+
+     iteration #  4     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  4.36E-05,  avg # of iterations =  4.8
+
+     total cpu time spent up to now is       10.0 secs
+
+     total energy              =    -371.61567135 Ry
+     Harris-Foulkes estimate   =    -371.62609504 Ry
+     estimated scf accuracy    <       0.04361890 Ry
+
+     iteration #  5     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  4.36E-05,  avg # of iterations =  3.7
+
+     total cpu time spent up to now is       11.6 secs
+
+     total energy              =    -371.62133546 Ry
+     Harris-Foulkes estimate   =    -371.62231212 Ry
+     estimated scf accuracy    <       0.00381669 Ry
+
+     iteration #  6     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     ethr =  7.34E-06,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is       13.4 secs
+
+     total energy              =    -371.62333497 Ry
+     Harris-Foulkes estimate   =    -371.62338471 Ry
+     estimated scf accuracy    <       0.00035991 Ry
+
+     iteration #  7     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  6.92E-07,  avg # of iterations =  5.5
+
+     total cpu time spent up to now is       16.4 secs
+
+     total energy              =    -371.62355246 Ry
+     Harris-Foulkes estimate   =    -371.62358116 Ry
+     estimated scf accuracy    <       0.00011147 Ry
+
+     iteration #  8     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  2.14E-07,  avg # of iterations =  4.4
+
+     total cpu time spent up to now is       18.3 secs
+
+     End of self-consistent calculation
+
+          k = 0.0000 0.0000 0.0000 (  7671 PWs)   bands (ev):
+
+   -32.1710 -32.1368 -32.1353 -32.1009 -12.1609 -11.8609 -11.8605 -11.6671
+   -11.6671 -11.6236 -11.6236 -11.6210 -11.6210 -11.5769 -11.5769 -11.5433
+     7.2515   8.4558   8.4573   8.7491  10.9185  10.9575  11.1414  11.1414
+    11.1710  11.1710  11.3567  11.5026  11.5026  11.5821  11.5821
+
+          k = 0.0000 0.0000 0.0778 (  7712 PWs)   bands (ev):
+
+   -32.1684 -32.1496 -32.1226 -32.1038 -12.1386 -11.9775 -11.7414 -11.6637
+   -11.6637 -11.6395 -11.6395 -11.6050 -11.6050 -11.5804 -11.5804 -11.5682
+     7.3508   8.0414   8.7138   8.7628  10.9471  11.1756  11.1756  11.2094
+    11.2094  11.2492  11.2867  11.4412  11.4412  11.5117  11.5117
+
+          k = 0.0000 0.0000-0.1557 (  7748 PWs)   bands (ev):
+
+   -32.1611 -32.1611 -32.1114 -32.1114 -12.0746 -12.0746 -11.6540 -11.6540
+   -11.6540 -11.6540 -11.6382 -11.6382 -11.5903 -11.5903 -11.5903 -11.5903
+     7.6328   7.6327   8.7790   8.7790  11.1159  11.1159  11.2496  11.2496
+    11.2496  11.2496  11.3926  11.3926  11.3926  11.3926  11.8578
+
+          k = 0.0000 0.3849 0.0000 (  7737 PWs)   bands (ev):
+
+   -32.1263 -32.1069 -32.1052 -32.0856 -12.0585 -12.0529 -11.9653 -11.9602
+   -11.9244 -11.7682 -11.7371 -11.7121 -11.7021 -11.6994 -11.6321 -11.6220
+     8.7740   9.0440   9.1487   9.4797   9.9652   9.9732  10.3732  10.8608
+    11.0362  11.2927  11.4734  11.7782  12.1396  12.2523  12.3056
+
+          k = 0.0000 0.3849 0.0778 (  7741 PWs)   bands (ev):
+
+   -32.1247 -32.1138 -32.0983 -32.0872 -12.0660 -12.0251 -12.0166 -11.9421
+   -11.8984 -11.7755 -11.7631 -11.7267 -11.6805 -11.6746 -11.6373 -11.6282
+     8.8031   9.0161   9.1969   9.4793   9.7279  10.0012  10.5012  10.8954
+    11.1964  11.3616  11.4290  11.7440  11.8800  12.0912  12.6926
+
+          k = 0.0000 0.3849-0.1557 (  7724 PWs)   bands (ev):
+
+   -32.1203 -32.1203 -32.0916 -32.0916 -12.0525 -12.0525 -11.9825 -11.9825
+   -11.8332 -11.8332 -11.7486 -11.7486 -11.6523 -11.6523 -11.6479 -11.6479
+     8.8987   8.8987   9.3613   9.3613   9.7661   9.7661  10.8040  10.8040
+    11.3413  11.3413  11.5633  11.5633  11.8863  11.8863  13.0264
+
+          k =-0.5000-0.2887 0.0000 (  7740 PWs)   bands (ev):
+
+   -32.1074 -32.0967 -32.0950 -32.0844 -12.1516 -12.1410 -12.0498 -12.0350
+   -11.8499 -11.7999 -11.7997 -11.7279 -11.7252 -11.7083 -11.6522 -11.6518
+     8.7456   8.7646   9.0089   9.4194   9.7036  10.0241  10.1974  10.7655
+    11.0985  11.1973  11.8342  12.3277  12.3449  13.0388  13.5546
+
+          k =-0.5000-0.2887 0.0778 (  7714 PWs)   bands (ev):
+
+   -32.1064 -32.1003 -32.0913 -32.0851 -12.1417 -12.1312 -12.0669 -12.0531
+   -11.8317 -11.7942 -11.7924 -11.7547 -11.7073 -11.6981 -11.6633 -11.6576
+     8.8279   8.8402   9.0397   9.2983   9.5736   9.6219  10.6211  10.7579
+    11.1799  11.5934  11.8125  11.8366  12.7024  12.9648  13.1422
+
+          k =-0.5000-0.2887-0.1557 (  7768 PWs)   bands (ev):
+
+   -32.1041 -32.1041 -32.0877 -32.0877 -12.1209 -12.1209 -12.0826 -12.0826
+   -11.8009 -11.8009 -11.7785 -11.7785 -11.6895 -11.6895 -11.6739 -11.6739
+     9.0122   9.0122   9.0499   9.0499   9.4078   9.4078  10.8345  10.8345
+    11.4207  11.4207  12.0106  12.0106  12.4645  12.4645  13.6347
+
+          k =-0.5000 0.0962 0.0000 (  7720 PWs)   bands (ev):
+
+   -32.1074 -32.0967 -32.0950 -32.0841 -12.0961 -12.0853 -12.0017 -11.9939
+   -11.9047 -11.8501 -11.8044 -11.7969 -11.7187 -11.7167 -11.6745 -11.6632
+     9.1495   9.1577   9.5338   9.9019   9.9629  10.0574  10.1797  10.5903
+    10.7036  11.0474  11.4362  11.7398  11.9219  12.3482  12.6437
+
+          k =-0.5000 0.0962 0.0778 (  7715 PWs)   bands (ev):
+
+   -32.1066 -32.1004 -32.0913 -32.0849 -12.0891 -12.0759 -12.0194 -12.0139
+   -11.8770 -11.8522 -11.8016 -11.7834 -11.7421 -11.7245 -11.6682 -11.6589
+     9.1885   9.2489   9.5643   9.6810   9.7256   9.9945  10.3637  10.7734
+    10.9348  10.9945  11.4041  11.7290  11.8662  12.1610  12.8143
+
+          k =-0.5000 0.0962-0.1557 (  7730 PWs)   bands (ev):
+
+   -32.1041 -32.1041 -32.0875 -32.0875 -12.0702 -12.0702 -12.0368 -12.0368
+   -11.8531 -11.8531 -11.7835 -11.7835 -11.7502 -11.7502 -11.6593 -11.6593
+     9.3559   9.3559   9.4539   9.4539   9.7616   9.7616  10.6710  10.6710
+    11.1076  11.1076  11.5076  11.5076  11.9301  11.9301  13.0129
+
+     the Fermi energy is    11.4208 ev
+
+!    total energy              =    -371.62358908 Ry
+     Harris-Foulkes estimate   =    -371.62358972 Ry
+     estimated scf accuracy    <       0.00000093 Ry
+
+     The total energy is the sum of the following terms:
+
+     one-electron contribution =     -63.64036722 Ry
+     hartree contribution      =      48.40879126 Ry
+     xc contribution           =     -44.37246302 Ry
+     ewald contribution        =    -311.54699087 Ry
+     smearing contrib. (-TS)   =      -0.47255924 Ry
+
+     convergence has been achieved in   8 iterations
+
+     Forces acting on atoms (Ry/au):
+
+     atom    1 type  1   force =     0.00000000    0.00000000    0.00000000
+     atom    2 type  1   force =     0.00000000    0.00000000    0.00000000
+     atom    3 type  1   force =     0.00000000    0.00000000    0.00000000
+     atom    4 type  1   force =     0.00000000    0.00000000    0.00000000
+
+     Total force =     0.000000     Total SCF correction =     0.000000
+
+
+     entering subroutine stress ...
+
+          total   stress  (Ry/bohr**3)                   (kbar)     P= -226.30
+  -0.00164710   0.00000000   0.00000000       -242.30      0.00      0.00
+   0.00000000  -0.00164710   0.00000000          0.00   -242.30      0.00
+   0.00000000   0.00000000  -0.00132080          0.00      0.00   -194.30
+
+
+     BFGS Geometry Optimization
+
+     number of scf cycles    =   1
+     number of bfgs steps    =   0
+
+     enthalpy new            =    -371.6235890847 Ry
+
+     new trust radius        =       0.2583887339 bohr
+     new conv_thr            =       0.0000010000 Ry
+
+     new unit-cell volume =    875.10936 a.u.^3 (   129.67783 Ang^3 )
+
+CELL_PARAMETERS (alat=  7.07322357)
+   0.958822556   0.000000000   0.000000000
+  -0.479411278   0.830364691   0.000000000
+   0.000000000   0.000000000   3.106011475
+
+ATOMIC_POSITIONS (crystal)
+Pr       0.000000000   0.000000000   0.000000000
+Pr       0.000000000   0.000000000   0.500000000
+Pr       0.333333000   0.666667000   0.250000000
+Pr       0.666667000   0.333333000   0.750000000
+
+
+
+     Writing output data file Element-Pr.q.save
+     NEW-OLD atomic charge density approx. for the potential
+     NEW k-points:
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   0.0833333
+        k(    2) = (   0.0000000   0.0000000   0.0804891), wk =   0.1666667
+        k(    3) = (   0.0000000   0.0000000  -0.1609782), wk =   0.0833333
+        k(    4) = (   0.0000000   0.4014300   0.0000000), wk =   0.1666667
+        k(    5) = (   0.0000000   0.4014300   0.0804891), wk =   0.3333333
+        k(    6) = (   0.0000000   0.4014300  -0.1609782), wk =   0.1666667
+        k(    7) = (  -0.5214729  -0.3010725   0.0000000), wk =   0.0833333
+        k(    8) = (  -0.5214729  -0.3010725   0.0804891), wk =   0.1666667
+        k(    9) = (  -0.5214729  -0.3010725  -0.1609782), wk =   0.0833333
+        k(   10) = (  -0.5214729   0.1003575   0.0000000), wk =   0.1666667
+        k(   11) = (  -0.5214729   0.1003575   0.0804891), wk =   0.3333333
+        k(   12) = (  -0.5214729   0.1003575  -0.1609782), wk =   0.1666667
+
+     negative rho (up, down):  0.230E+00 0.000E+00
+     extrapolated charge   45.51098, renormalised to   52.00000
+
+     total cpu time spent up to now is       19.9 secs
+
+     Self-consistent Calculation
+
+     iteration #  1     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  7 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     ethr =  1.00E-06,  avg # of iterations = 47.8
+
+     negative rho (up, down):  0.843E-04 0.000E+00
+
+     total cpu time spent up to now is       39.8 secs
+
+     total energy              =    -361.74335848 Ry
+     Harris-Foulkes estimate   =    -376.30310279 Ry
+     estimated scf accuracy    <      11.21615213 Ry
+
+     iteration #  2     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.00E-02,  avg # of iterations =  5.8
+
+     negative rho (up, down):  0.467E-04 0.000E+00
+
+     total cpu time spent up to now is       42.9 secs
+
+     total energy              =    -371.75983475 Ry
+     Harris-Foulkes estimate   =    -376.92159112 Ry
+     estimated scf accuracy    <      10.59544884 Ry
+
+     iteration #  3     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.00E-02,  avg # of iterations =  3.8
+
+     negative rho (up, down):  0.160E-04 0.000E+00
+
+     total cpu time spent up to now is       45.0 secs
+
+     total energy              =    -371.90351018 Ry
+     Harris-Foulkes estimate   =    -372.58519624 Ry
+     estimated scf accuracy    <       1.93605540 Ry
+
+     iteration #  4     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  3.72E-03,  avg # of iterations =  3.2
+
+     total cpu time spent up to now is       46.9 secs
+
+     total energy              =    -371.71827541 Ry
+     Harris-Foulkes estimate   =    -372.07458478 Ry
+     estimated scf accuracy    <       0.94922848 Ry
+
+     iteration #  5     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.83E-03,  avg # of iterations =  3.4
+
+     total cpu time spent up to now is       48.9 secs
+
+     total energy              =    -371.75764402 Ry
+     Harris-Foulkes estimate   =    -371.82553371 Ry
+     estimated scf accuracy    <       0.18557927 Ry
+
+     iteration #  6     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  3.57E-04,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is       51.2 secs
+
+     total energy              =    -371.77411665 Ry
+     Harris-Foulkes estimate   =    -371.79574738 Ry
+     estimated scf accuracy    <       0.04304407 Ry
+
+     iteration #  7     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  8.28E-05,  avg # of iterations =  5.2
+
+     total cpu time spent up to now is       53.5 secs
+
+     total energy              =    -371.79449571 Ry
+     Harris-Foulkes estimate   =    -371.79508819 Ry
+     estimated scf accuracy    <       0.00159259 Ry
+
+     iteration #  8     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     ethr =  3.06E-06,  avg # of iterations =  7.6
+
+     total cpu time spent up to now is       57.3 secs
+
+     total energy              =    -371.80034476 Ry
+     Harris-Foulkes estimate   =    -371.80034892 Ry
+     estimated scf accuracy    <       0.00040672 Ry
+
+     iteration #  9     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  7.82E-07,  avg # of iterations =  3.8
+
+     total cpu time spent up to now is       59.5 secs
+
+     total energy              =    -371.80033159 Ry
+     Harris-Foulkes estimate   =    -371.80041126 Ry
+     estimated scf accuracy    <       0.00038374 Ry
+
+     iteration # 10     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  7.38E-07,  avg # of iterations =  3.1
+
+     total cpu time spent up to now is       61.5 secs
+
+     total energy              =    -371.80020983 Ry
+     Harris-Foulkes estimate   =    -371.80035279 Ry
+     estimated scf accuracy    <       0.00024266 Ry
+
+     iteration # 11     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  4.67E-07,  avg # of iterations =  4.7
+
+     total cpu time spent up to now is       63.5 secs
+
+     total energy              =    -371.80028256 Ry
+     Harris-Foulkes estimate   =    -371.80028715 Ry
+     estimated scf accuracy    <       0.00005923 Ry
+
+     iteration # 12     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.14E-07,  avg # of iterations =  4.1
+
+     total cpu time spent up to now is       65.8 secs
+
+     total energy              =    -371.80028601 Ry
+     Harris-Foulkes estimate   =    -371.80029413 Ry
+     estimated scf accuracy    <       0.00004200 Ry
+
+     iteration # 13     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  8.08E-08,  avg # of iterations =  3.1
+
+     total cpu time spent up to now is       67.7 secs
+
+     total energy              =    -371.80028685 Ry
+     Harris-Foulkes estimate   =    -371.80028813 Ry
+     estimated scf accuracy    <       0.00001265 Ry
+
+     iteration # 14     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  2.43E-08,  avg # of iterations =  4.1
+
+     total cpu time spent up to now is       70.1 secs
+
+     total energy              =    -371.80029008 Ry
+     Harris-Foulkes estimate   =    -371.80029024 Ry
+     estimated scf accuracy    <       0.00000604 Ry
+
+     iteration # 15     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.16E-08,  avg # of iterations =  3.3
+
+     total cpu time spent up to now is       72.1 secs
+
+     total energy              =    -371.80029077 Ry
+     Harris-Foulkes estimate   =    -371.80029083 Ry
+     estimated scf accuracy    <       0.00000501 Ry
+
+     iteration # 16     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  9.64E-09,  avg # of iterations =  3.0
+
+     total cpu time spent up to now is       74.0 secs
+
+     total energy              =    -371.80029112 Ry
+     Harris-Foulkes estimate   =    -371.80029097 Ry
+     estimated scf accuracy    <       0.00000472 Ry
+
+     iteration # 17     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  9.09E-09,  avg # of iterations =  3.0
+
+     total cpu time spent up to now is       75.9 secs
+
+     total energy              =    -371.80029009 Ry
+     Harris-Foulkes estimate   =    -371.80029126 Ry
+     estimated scf accuracy    <       0.00000507 Ry
+
+     iteration # 18     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  9.09E-09,  avg # of iterations =  3.8
+
+     total cpu time spent up to now is       78.2 secs
+
+     total energy              =    -371.80028817 Ry
+     Harris-Foulkes estimate   =    -371.80029099 Ry
+     estimated scf accuracy    <       0.00001077 Ry
+
+     iteration # 19     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  9.09E-09,  avg # of iterations =  3.8
+
+     total cpu time spent up to now is       79.9 secs
+
+     End of self-consistent calculation
+
+          k = 0.0000 0.0000 0.0000 (  7671 PWs)   bands (ev):
+
+   -30.1295 -30.0752 -30.0697 -30.0147 -10.2973  -9.8643  -9.8595  -9.5414
+    -9.5414  -9.4816  -9.4816  -9.4764  -9.4764  -9.4156  -9.4156  -9.3932
+     8.8472  10.1222  10.1229  10.2542  12.6648  12.7160  12.9471  12.9471
+    12.9945  12.9945  13.1120  13.3416  13.3416  13.4425  13.4425
+
+          k = 0.0000 0.0000 0.0805 (  7712 PWs)   bands (ev):
+
+   -30.1252 -30.0946 -30.0503 -30.0192 -10.2652 -10.0321  -9.6869  -9.5367
+    -9.5367  -9.5031  -9.5031  -9.4547  -9.4547  -9.4303  -9.4205  -9.4205
+     8.9597   9.7161  10.2773  10.3181  12.6445  12.9831  12.9831  13.0261
+    13.0322  13.0322  13.1197  13.2797  13.2797  13.3669  13.3669
+
+          k = 0.0000 0.0000-0.1610 (  7748 PWs)   bands (ev):
+
+   -30.1131 -30.1131 -30.0318 -30.0318 -10.1729 -10.1729  -9.5344  -9.5344
+    -9.5233  -9.5233  -9.5233  -9.5233  -9.4343  -9.4343  -9.4343  -9.4343
+     9.2752   9.2752  10.3246  10.3246  12.8243  12.8243  13.0604  13.0604
+    13.0604  13.0604  13.2422  13.2422  13.2422  13.2422  13.8291
+
+          k = 0.0000 0.4014 0.0000 (  7737 PWs)   bands (ev):
+
+   -30.0522 -30.0219 -30.0163 -29.9856 -10.1420 -10.1355 -10.0085  -9.9991
+    -9.9512  -9.6952  -9.6721  -9.6389  -9.6016  -9.5964  -9.5038  -9.5005
+    10.3835  10.5765  10.6697  11.1116  11.5207  11.5669  12.1014  12.6830
+    12.7617  13.1375  13.2940  13.7504  14.1209  14.2078  14.2583
+
+          k = 0.0000 0.4014 0.0805 (  7741 PWs)   bands (ev):
+
+   -30.0497 -30.0320 -30.0061 -29.9882 -10.1531 -10.0952 -10.0818  -9.9765
+    -9.9104  -9.7302  -9.6879  -9.6362  -9.5909  -9.5615  -9.5130  -9.5081
+    10.4081  10.6261  10.6896  11.0533  11.2656  11.6323  12.1946  12.6676
+    13.0318  13.2144  13.2533  13.6938  13.7924  14.0764  14.6815
+
+          k = 0.0000 0.4014-0.1610 (  7724 PWs)   bands (ev):
+
+   -30.0426 -30.0426 -29.9954 -29.9954 -10.1336 -10.1336 -10.0343 -10.0343
+    -9.8152  -9.8152  -9.6673  -9.6673  -9.5424  -9.5424  -9.5296  -9.5296
+    10.5152  10.5152  10.8737  10.8737  11.3471  11.3471  12.5374  12.5374
+    13.2104  13.2104  13.4406  13.4406  13.8417  13.8417  15.0410
+
+          k =-0.5215-0.3011 0.0000 (  7740 PWs)   bands (ev):
+
+   -30.0200 -30.0038 -29.9983 -29.9820 -10.2842 -10.2670 -10.1384 -10.1165
+    -9.8395  -9.7614  -9.7426  -9.6408  -9.6356  -9.6334  -9.5471  -9.5309
+    10.1989  10.2317  10.4549  10.9474  11.2455  11.6733  11.8262  12.4592
+    12.9187  13.0904  13.7649  14.2783  14.2940  15.1145  15.6135
+
+          k =-0.5215-0.3011 0.0805 (  7714 PWs)   bands (ev):
+
+   -30.0186 -30.0087 -29.9933 -29.9833 -10.2703 -10.2536 -10.1621 -10.1415
+    -9.8132  -9.7521  -9.7348  -9.6785  -9.6309  -9.5974  -9.5636  -9.5391
+    10.2877  10.3198  10.5024  10.8211  11.1097  11.1799  12.3216  12.4344
+    13.0093  13.5437  13.7113  13.7639  14.7409  14.9795  15.2359
+
+          k =-0.5215-0.3011-0.1610 (  7768 PWs)   bands (ev):
+
+   -30.0147 -30.0147 -29.9874 -29.9874 -10.2412 -10.2412 -10.1823 -10.1823
+    -9.7674  -9.7674  -9.7123  -9.7123  -9.6028  -9.6028  -9.5626  -9.5626
+    10.4626  10.4626  10.6028  10.6028  10.8994  10.8994  12.5284  12.5284
+    13.2761  13.2761  13.9904  13.9904  14.4772  14.4772  15.7001
+
+          k =-0.5215 0.1004 0.0000 (  7720 PWs)   bands (ev):
+
+   -30.0202 -30.0038 -29.9982 -29.9817 -10.1997 -10.1833 -10.0649 -10.0516
+    -9.9150  -9.8243  -9.7660  -9.7507  -9.6373  -9.6349  -9.5786  -9.5618
+    10.6411  10.7171  11.0824  11.5438  11.6181  11.7216  11.8304  12.2519
+    12.4778  12.8290  13.3158  13.5978  13.8757  14.2901  14.5987
+
+          k =-0.5215 0.1004 0.0805 (  7715 PWs)   bands (ev):
+
+   -30.0188 -30.0088 -29.9932 -29.9831 -10.1894 -10.1705 -10.0877 -10.0817
+    -9.8747  -9.8293  -9.7573  -9.7345  -9.6736  -9.6469  -9.5678  -9.5548
+    10.7093  10.7965  11.1320  11.2756  11.3655  11.6039  12.0300  12.4947
+    12.7415  12.7822  13.2612  13.6062  13.8005  14.1031  14.7703
+
+          k =-0.5215 0.1004-0.1610 (  7730 PWs)   bands (ev):
+
+   -30.0148 -30.0148 -29.9872 -29.9872 -10.1626 -10.1626 -10.1131 -10.1131
+    -9.8350  -9.8350  -9.7333  -9.7333  -9.6857  -9.6857  -9.5545  -9.5545
+    10.8953  10.8953  11.0600  11.0600  11.3333  11.3333  12.3753  12.3753
+    12.9278  12.9278  13.3836  13.3836  13.8468  13.8468  14.9695
+
+     the Fermi energy is    13.2478 ev
+
+!    total energy              =    -371.80029031 Ry
+     Harris-Foulkes estimate   =    -371.80028940 Ry
+     estimated scf accuracy    <       0.00000014 Ry
+
+     The total energy is the sum of the following terms:
+
+     one-electron contribution =     -46.08807152 Ry
+     hartree contribution      =      43.51449140 Ry
+     xc contribution           =     -44.77020141 Ry
+     ewald contribution        =    -324.02024693 Ry
+     smearing contrib. (-TS)   =      -0.43626185 Ry
+
+     convergence has been achieved in  19 iterations
+
+     Forces acting on atoms (Ry/au):
+
+     atom    1 type  1   force =     0.00000000    0.00000000    0.00000000
+     atom    2 type  1   force =     0.00000000    0.00000000    0.00000000
+     atom    3 type  1   force =     0.00000000    0.00000000    0.00000000
+     atom    4 type  1   force =     0.00000000    0.00000000    0.00000000
+
+     Total force =     0.000000     Total SCF correction =     0.000000
+
+
+     entering subroutine stress ...
+
+          total   stress  (Ry/bohr**3)                   (kbar)     P= -253.87
+  -0.00188688   0.00000000   0.00000000       -277.57      0.00      0.00
+   0.00000000  -0.00188688   0.00000000          0.00   -277.57      0.00
+   0.00000000   0.00000000  -0.00140347          0.00      0.00   -206.46
+
+
+     number of scf cycles    =   2
+     number of bfgs steps    =   1
+
+     enthalpy old            =    -371.6235890847 Ry
+     enthalpy new            =    -371.8002903121 Ry
+
+     CASE: enthalpy_new < enthalpy_old
+
+
+     WARNING: bfgs curvature condition failed, Theta= 0.768
+     new trust radius        =       0.3811303729 bohr
+     new conv_thr            =       0.0000000100 Ry
+
+     new unit-cell volume =    720.82519 a.u.^3 (   106.81527 Ang^3 )
+
+CELL_PARAMETERS (alat=  7.07322357)
+   0.897056389   0.000000000   0.000000000
+  -0.448528195   0.776873622   0.000000000
+   0.000000000   0.000000000   2.922857749
+
+ATOMIC_POSITIONS (crystal)
+Pr       0.000000000   0.000000000   0.000000000
+Pr       0.000000000   0.000000000   0.500000000
+Pr       0.333333000   0.666667000   0.250000000
+Pr       0.666667000   0.333333000   0.750000000
+
+
+
+     Writing output data file Element-Pr.q.save
+     NEW-OLD atomic charge density approx. for the potential
+     NEW k-points:
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   0.0833333
+        k(    2) = (   0.0000000   0.0000000   0.0855327), wk =   0.1666667
+        k(    3) = (   0.0000000   0.0000000  -0.1710655), wk =   0.0833333
+        k(    4) = (   0.0000000   0.4290702   0.0000000), wk =   0.1666667
+        k(    5) = (   0.0000000   0.4290702   0.0855327), wk =   0.3333333
+        k(    6) = (   0.0000000   0.4290702  -0.1710655), wk =   0.1666667
+        k(    7) = (  -0.5573786  -0.3218027   0.0000000), wk =   0.0833333
+        k(    8) = (  -0.5573786  -0.3218027   0.0855327), wk =   0.1666667
+        k(    9) = (  -0.5573786  -0.3218027  -0.1710655), wk =   0.0833333
+        k(   10) = (  -0.5573786   0.1072676   0.0000000), wk =   0.1666667
+        k(   11) = (  -0.5573786   0.1072676   0.0855327), wk =   0.3333333
+        k(   12) = (  -0.5573786   0.1072676  -0.1710655), wk =   0.1666667
+
+     negative rho (up, down):  0.731E+00 0.000E+00
+     extrapolated charge   40.87811, renormalised to   52.00000
+
+     total cpu time spent up to now is       81.4 secs
+
+     Self-consistent Calculation
+
+     iteration #  1     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     ethr =  1.00E-06,  avg # of iterations = 31.6
+
+     negative rho (up, down):  0.153E-03 0.000E+00
+
+     total cpu time spent up to now is       94.7 secs
+
+     total energy              =    -338.80373472 Ry
+     Harris-Foulkes estimate   =    -391.23436212 Ry
+     estimated scf accuracy    <      55.21630463 Ry
+
+     iteration #  2     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.00E-02,  avg # of iterations =  8.3
+
+     negative rho (up, down):  0.936E-04 0.000E+00
+
+     total cpu time spent up to now is       98.8 secs
+
+     total energy              =    -372.84931549 Ry
+     Harris-Foulkes estimate   =    -396.09096095 Ry
+     estimated scf accuracy    <      46.39611941 Ry
+
+     iteration #  3     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.00E-02,  avg # of iterations =  4.1
+
+     negative rho (up, down):  0.515E-04 0.000E+00
+
+     total cpu time spent up to now is      101.1 secs
+
+     total energy              =    -372.57327809 Ry
+     Harris-Foulkes estimate   =    -376.13315662 Ry
+     estimated scf accuracy    <       8.19373524 Ry
+
+     iteration #  4     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.00E-02,  avg # of iterations =  3.1
+
+     total cpu time spent up to now is      102.5 secs
+
+     total energy              =    -371.58803379 Ry
+     Harris-Foulkes estimate   =    -372.93562911 Ry
+     estimated scf accuracy    <       2.37089691 Ry
+
+     iteration #  5     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  4.56E-03,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is      104.8 secs
+
+     total energy              =    -371.99436867 Ry
+     Harris-Foulkes estimate   =    -372.00229660 Ry
+     estimated scf accuracy    <       0.08470572 Ry
+
+     iteration #  6     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     ethr =  1.63E-04,  avg # of iterations =  8.0
+
+     total cpu time spent up to now is      108.3 secs
+
+     total energy              =    -372.39564104 Ry
+     Harris-Foulkes estimate   =    -372.40316771 Ry
+     estimated scf accuracy    <       0.45403715 Ry
+
+     iteration #  7     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  1.63E-04,  avg # of iterations =  4.2
+
+     total cpu time spent up to now is      110.2 secs
+
+     total energy              =    -372.39183993 Ry
+     Harris-Foulkes estimate   =    -372.41729101 Ry
+     estimated scf accuracy    <       0.52695184 Ry
+
+     iteration #  8     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.63E-04,  avg # of iterations =  3.0
+
+     total cpu time spent up to now is      112.1 secs
+
+     total energy              =    -372.30486691 Ry
+     Harris-Foulkes estimate   =    -372.39384072 Ry
+     estimated scf accuracy    <       0.44579449 Ry
+
+     iteration #  9     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.63E-04,  avg # of iterations =  4.4
+
+     total cpu time spent up to now is      114.2 secs
+
+     total energy              =    -372.33247649 Ry
+     Harris-Foulkes estimate   =    -372.33701403 Ry
+     estimated scf accuracy    <       0.06866258 Ry
+
+     iteration # 10     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  1.32E-04,  avg # of iterations =  3.0
+
+     total cpu time spent up to now is      116.0 secs
+
+     total energy              =    -372.31624954 Ry
+     Harris-Foulkes estimate   =    -372.33412666 Ry
+     estimated scf accuracy    <       0.05363743 Ry
+
+     iteration # 11     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  1.03E-04,  avg # of iterations =  4.3
+
+     total cpu time spent up to now is      118.5 secs
+
+     total energy              =    -372.33369484 Ry
+     Harris-Foulkes estimate   =    -372.33368851 Ry
+     estimated scf accuracy    <       0.00087325 Ry
+
+     iteration # 12     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     ethr =  1.68E-06,  avg # of iterations = 12.8
+
+     total cpu time spent up to now is      124.5 secs
+
+     total energy              =    -372.34688691 Ry
+     Harris-Foulkes estimate   =    -372.34722948 Ry
+     estimated scf accuracy    <       0.01291375 Ry
+
+     iteration # 13     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  1.68E-06,  avg # of iterations =  4.1
+
+     total cpu time spent up to now is      126.9 secs
+
+     total energy              =    -372.34486388 Ry
+     Harris-Foulkes estimate   =    -372.34737055 Ry
+     estimated scf accuracy    <       0.01193363 Ry
+
+     iteration # 14     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  1.68E-06,  avg # of iterations =  5.7
+
+     total cpu time spent up to now is      129.9 secs
+
+     total energy              =    -372.34619828 Ry
+     Harris-Foulkes estimate   =    -372.34566579 Ry
+     estimated scf accuracy    <       0.00266941 Ry
+
+     iteration # 15     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  1.68E-06,  avg # of iterations =  3.4
+
+     total cpu time spent up to now is      131.4 secs
+
+     total energy              =    -372.34594849 Ry
+     Harris-Foulkes estimate   =    -372.34630667 Ry
+     estimated scf accuracy    <       0.00419906 Ry
+
+     iteration # 16     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  1.68E-06,  avg # of iterations =  3.3
+
+     total cpu time spent up to now is      133.4 secs
+
+     total energy              =    -372.34494499 Ry
+     Harris-Foulkes estimate   =    -372.34603509 Ry
+     estimated scf accuracy    <       0.00275725 Ry
+
+     iteration # 17     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  1.68E-06,  avg # of iterations =  6.3
+
+     total cpu time spent up to now is      136.7 secs
+
+     total energy              =    -372.34578562 Ry
+     Harris-Foulkes estimate   =    -372.34573795 Ry
+     estimated scf accuracy    <       0.00021470 Ry
+
+     iteration # 18     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  4.13E-07,  avg # of iterations =  6.0
+
+     total cpu time spent up to now is      139.8 secs
+
+     total energy              =    -372.34679033 Ry
+     Harris-Foulkes estimate   =    -372.34674168 Ry
+     estimated scf accuracy    <       0.00034503 Ry
+
+     iteration # 19     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  4.13E-07,  avg # of iterations =  3.7
+
+     total cpu time spent up to now is      141.5 secs
+
+     total energy              =    -372.34687614 Ry
+     Harris-Foulkes estimate   =    -372.34694947 Ry
+     estimated scf accuracy    <       0.00044806 Ry
+
+     iteration # 20     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  4.13E-07,  avg # of iterations =  3.4
+
+     total cpu time spent up to now is      143.0 secs
+
+     total energy              =    -372.34684712 Ry
+     Harris-Foulkes estimate   =    -372.34691687 Ry
+     estimated scf accuracy    <       0.00023051 Ry
+
+     iteration # 21     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  4.13E-07,  avg # of iterations =  3.6
+
+     total cpu time spent up to now is      144.7 secs
+
+     total energy              =    -372.34688805 Ry
+     Harris-Foulkes estimate   =    -372.34689116 Ry
+     estimated scf accuracy    <       0.00009986 Ry
+
+     iteration # 22     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  1.92E-07,  avg # of iterations =  4.2
+
+     total cpu time spent up to now is      147.1 secs
+
+     total energy              =    -372.34693749 Ry
+     Harris-Foulkes estimate   =    -372.34692619 Ry
+     estimated scf accuracy    <       0.00006827 Ry
+
+     iteration # 23     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  1.31E-07,  avg # of iterations =  3.8
+
+     total cpu time spent up to now is      149.3 secs
+
+     total energy              =    -372.34696082 Ry
+     Harris-Foulkes estimate   =    -372.34696014 Ry
+     estimated scf accuracy    <       0.00005938 Ry
+
+     iteration # 24     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  1.14E-07,  avg # of iterations =  3.3
+
+     total cpu time spent up to now is      150.9 secs
+
+     total energy              =    -372.34697095 Ry
+     Harris-Foulkes estimate   =    -372.34697229 Ry
+     estimated scf accuracy    <       0.00005096 Ry
+
+     iteration # 25     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  9.80E-08,  avg # of iterations =  3.2
+
+     total cpu time spent up to now is      152.8 secs
+
+     total energy              =    -372.34699153 Ry
+     Harris-Foulkes estimate   =    -372.34699126 Ry
+     estimated scf accuracy    <       0.00004720 Ry
+
+     iteration # 26     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  9.08E-08,  avg # of iterations =  3.1
+
+     total cpu time spent up to now is      154.8 secs
+
+     total energy              =    -372.34702210 Ry
+     Harris-Foulkes estimate   =    -372.34704853 Ry
+     estimated scf accuracy    <       0.00004081 Ry
+
+     iteration # 27     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  7.85E-08,  avg # of iterations =  8.0
+
+     total cpu time spent up to now is      158.4 secs
+
+     total energy              =    -372.34724976 Ry
+     Harris-Foulkes estimate   =    -372.34726581 Ry
+     estimated scf accuracy    <       0.00008037 Ry
+
+     iteration # 28     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  7.85E-08,  avg # of iterations =  3.6
+
+     total cpu time spent up to now is      160.6 secs
+
+     total energy              =    -372.34742174 Ry
+     Harris-Foulkes estimate   =    -372.34742296 Ry
+     estimated scf accuracy    <       0.00001922 Ry
+
+     iteration # 29     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  3.70E-08,  avg # of iterations =  4.6
+
+     total cpu time spent up to now is      163.2 secs
+
+     total energy              =    -372.34747457 Ry
+     Harris-Foulkes estimate   =    -372.34747187 Ry
+     estimated scf accuracy    <       0.00000888 Ry
+
+     iteration # 30     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  1.71E-08,  avg # of iterations =  4.6
+
+     total cpu time spent up to now is      165.7 secs
+
+     total energy              =    -372.34747342 Ry
+     Harris-Foulkes estimate   =    -372.34748202 Ry
+     estimated scf accuracy    <       0.00000822 Ry
+
+     iteration # 31     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     ethr =  1.58E-08,  avg # of iterations =  7.6
+
+     total cpu time spent up to now is      169.5 secs
+
+     total energy              =    -372.34748875 Ry
+     Harris-Foulkes estimate   =    -372.34749324 Ry
+     estimated scf accuracy    <       0.00003880 Ry
+
+     iteration # 32     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  1.58E-08,  avg # of iterations =  4.1
+
+     total cpu time spent up to now is      171.9 secs
+
+     total energy              =    -372.34750723 Ry
+     Harris-Foulkes estimate   =    -372.34750689 Ry
+     estimated scf accuracy    <       0.00000305 Ry
+
+     iteration # 33     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  4.6
+
+     total cpu time spent up to now is      174.4 secs
+
+     total energy              =    -372.34778758 Ry
+     Harris-Foulkes estimate   =    -372.34778779 Ry
+     estimated scf accuracy    <       0.00000445 Ry
+
+     iteration # 34     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  3.7
+
+     total cpu time spent up to now is      176.1 secs
+
+     total energy              =    -372.34785986 Ry
+     Harris-Foulkes estimate   =    -372.34786596 Ry
+     estimated scf accuracy    <       0.00001507 Ry
+
+     iteration # 35     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  4.4
+
+     total cpu time spent up to now is      178.1 secs
+
+     total energy              =    -372.34788273 Ry
+     Harris-Foulkes estimate   =    -372.34788097 Ry
+     estimated scf accuracy    <       0.00002997 Ry
+
+     iteration # 36     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  3.2
+
+     total cpu time spent up to now is      179.6 secs
+
+     total energy              =    -372.34788964 Ry
+     Harris-Foulkes estimate   =    -372.34788808 Ry
+     estimated scf accuracy    <       0.00002855 Ry
+
+     iteration # 37     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is      181.3 secs
+
+     total energy              =    -372.34789474 Ry
+     Harris-Foulkes estimate   =    -372.34789138 Ry
+     estimated scf accuracy    <       0.00001918 Ry
+
+     iteration # 38     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  5.4
+
+     total cpu time spent up to now is      183.7 secs
+
+     total energy              =    -372.34789765 Ry
+     Harris-Foulkes estimate   =    -372.34789712 Ry
+     estimated scf accuracy    <       0.00000601 Ry
+
+     iteration # 39     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  4.3
+
+     total cpu time spent up to now is      186.1 secs
+
+     total energy              =    -372.34789933 Ry
+     Harris-Foulkes estimate   =    -372.34789871 Ry
+     estimated scf accuracy    <       0.00001776 Ry
+
+     iteration # 40     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  3.2
+
+     total cpu time spent up to now is      187.6 secs
+
+     total energy              =    -372.34789797 Ry
+     Harris-Foulkes estimate   =    -372.34789959 Ry
+     estimated scf accuracy    <       0.00001829 Ry
+
+     iteration # 41     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  5.9
+
+     total cpu time spent up to now is      190.2 secs
+
+     total energy              =    -372.34789960 Ry
+     Harris-Foulkes estimate   =    -372.34790160 Ry
+     estimated scf accuracy    <       0.00000458 Ry
+
+     iteration # 42     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  4.4
+
+     total cpu time spent up to now is      192.7 secs
+
+     total energy              =    -372.34789955 Ry
+     Harris-Foulkes estimate   =    -372.34790071 Ry
+     estimated scf accuracy    <       0.00000603 Ry
+
+     iteration # 43     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  6.7
+
+     total cpu time spent up to now is      195.6 secs
+
+     total energy              =    -372.34790173 Ry
+     Harris-Foulkes estimate   =    -372.34790375 Ry
+     estimated scf accuracy    <       0.00002519 Ry
+
+     iteration # 44     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  4.3
+
+     total cpu time spent up to now is      198.1 secs
+
+     total energy              =    -372.34790209 Ry
+     Harris-Foulkes estimate   =    -372.34790249 Ry
+     estimated scf accuracy    <       0.00000759 Ry
+
+     iteration # 45     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  3.1
+
+     total cpu time spent up to now is      200.0 secs
+
+     total energy              =    -372.34790075 Ry
+     Harris-Foulkes estimate   =    -372.34790222 Ry
+     estimated scf accuracy    <       0.00000514 Ry
+
+     iteration # 46     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  6.7
+
+     total cpu time spent up to now is      203.4 secs
+
+     total energy              =    -372.34790485 Ry
+     Harris-Foulkes estimate   =    -372.34790546 Ry
+     estimated scf accuracy    <       0.00005155 Ry
+
+     iteration # 47     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  3.4
+
+     total cpu time spent up to now is      205.5 secs
+
+     total energy              =    -372.34790238 Ry
+     Harris-Foulkes estimate   =    -372.34790506 Ry
+     estimated scf accuracy    <       0.00004794 Ry
+
+     iteration # 48     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  3.7
+
+     total cpu time spent up to now is      207.7 secs
+
+     total energy              =    -372.34790219 Ry
+     Harris-Foulkes estimate   =    -372.34790287 Ry
+     estimated scf accuracy    <       0.00002287 Ry
+
+     iteration # 49     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  3.2
+
+     total cpu time spent up to now is      209.6 secs
+
+     total energy              =    -372.34790182 Ry
+     Harris-Foulkes estimate   =    -372.34790235 Ry
+     estimated scf accuracy    <       0.00001645 Ry
+
+     iteration # 50     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  3.6
+
+     total cpu time spent up to now is      212.2 secs
+
+     total energy              =    -372.34790204 Ry
+     Harris-Foulkes estimate   =    -372.34790223 Ry
+     estimated scf accuracy    <       0.00000694 Ry
+
+     iteration # 51     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     ethr =  5.87E-09,  avg # of iterations =  3.1
+
+     total cpu time spent up to now is      214.2 secs
+
+     total energy              =    -372.34790167 Ry
+     Harris-Foulkes estimate   =    -372.34790212 Ry
+     estimated scf accuracy    <       0.00000548 Ry
+
+     iteration # 52     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  5.87E-09,  avg # of iterations =  4.4
+
+     total cpu time spent up to now is      216.7 secs
+
+     total energy              =    -372.34790264 Ry
+     Harris-Foulkes estimate   =    -372.34790264 Ry
+     estimated scf accuracy    <       0.00000014 Ry
+
+     iteration # 53     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations = 11.1
+
+     total cpu time spent up to now is      222.0 secs
+
+     total energy              =    -372.34790362 Ry
+     Harris-Foulkes estimate   =    -372.34790373 Ry
+     estimated scf accuracy    <       0.00001259 Ry
+
+     iteration # 54     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.9
+
+     total cpu time spent up to now is      223.8 secs
+
+     total energy              =    -372.34790348 Ry
+     Harris-Foulkes estimate   =    -372.34790366 Ry
+     estimated scf accuracy    <       0.00001240 Ry
+
+     iteration # 55     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.4
+
+     total cpu time spent up to now is      225.8 secs
+
+     total energy              =    -372.34790360 Ry
+     Harris-Foulkes estimate   =    -372.34790363 Ry
+     estimated scf accuracy    <       0.00001101 Ry
+
+     iteration # 56     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.2
+
+     total cpu time spent up to now is      227.2 secs
+
+     total energy              =    -372.34790384 Ry
+     Harris-Foulkes estimate   =    -372.34790390 Ry
+     estimated scf accuracy    <       0.00001090 Ry
+
+     iteration # 57     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.2
+
+     total cpu time spent up to now is      228.7 secs
+
+     total energy              =    -372.34790542 Ry
+     Harris-Foulkes estimate   =    -372.34790547 Ry
+     estimated scf accuracy    <       0.00001132 Ry
+
+     iteration # 58     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.2
+
+     total cpu time spent up to now is      230.1 secs
+
+     total energy              =    -372.34790972 Ry
+     Harris-Foulkes estimate   =    -372.34790994 Ry
+     estimated scf accuracy    <       0.00001198 Ry
+
+     iteration # 59     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  5.3
+
+     total cpu time spent up to now is      232.5 secs
+
+     total energy              =    -372.34791511 Ry
+     Harris-Foulkes estimate   =    -372.34791515 Ry
+     estimated scf accuracy    <       0.00000497 Ry
+
+     iteration # 60     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.3
+
+     total cpu time spent up to now is      234.0 secs
+
+     total energy              =    -372.34792168 Ry
+     Harris-Foulkes estimate   =    -372.34792104 Ry
+     estimated scf accuracy    <       0.00000587 Ry
+
+     iteration # 61     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  6.4
+
+     total cpu time spent up to now is      236.8 secs
+
+     total energy              =    -372.34793307 Ry
+     Harris-Foulkes estimate   =    -372.34793502 Ry
+     estimated scf accuracy    <       0.00002668 Ry
+
+     iteration # 62     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  9.0
+
+     total cpu time spent up to now is      240.7 secs
+
+     total energy              =    -372.34795020 Ry
+     Harris-Foulkes estimate   =    -372.34795018 Ry
+     estimated scf accuracy    <       0.00000322 Ry
+
+     iteration # 63     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.9
+
+     total cpu time spent up to now is      242.9 secs
+
+     total energy              =    -372.34796238 Ry
+     Harris-Foulkes estimate   =    -372.34796241 Ry
+     estimated scf accuracy    <       0.00000378 Ry
+
+     iteration # 64     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  4.1
+
+     total cpu time spent up to now is      245.2 secs
+
+     total energy              =    -372.34797553 Ry
+     Harris-Foulkes estimate   =    -372.34797554 Ry
+     estimated scf accuracy    <       0.00000384 Ry
+
+     iteration # 65     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.4
+
+     total cpu time spent up to now is      246.7 secs
+
+     total energy              =    -372.34798572 Ry
+     Harris-Foulkes estimate   =    -372.34798581 Ry
+     estimated scf accuracy    <       0.00000437 Ry
+
+     iteration # 66     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  4.9
+
+     total cpu time spent up to now is      249.3 secs
+
+     total energy              =    -372.34799785 Ry
+     Harris-Foulkes estimate   =    -372.34799793 Ry
+     estimated scf accuracy    <       0.00000466 Ry
+
+     iteration # 67     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.3
+
+     total cpu time spent up to now is      251.3 secs
+
+     total energy              =    -372.34800717 Ry
+     Harris-Foulkes estimate   =    -372.34800703 Ry
+     estimated scf accuracy    <       0.00000483 Ry
+
+     iteration # 68     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.1
+
+     total cpu time spent up to now is      253.2 secs
+
+     total energy              =    -372.34801735 Ry
+     Harris-Foulkes estimate   =    -372.34801734 Ry
+     estimated scf accuracy    <       0.00000656 Ry
+
+     iteration # 69     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  3.1
+
+     total cpu time spent up to now is      255.1 secs
+
+     total energy              =    -372.34802447 Ry
+     Harris-Foulkes estimate   =    -372.34802419 Ry
+     estimated scf accuracy    <       0.00000674 Ry
+
+     iteration # 70     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  5.8
+
+     total cpu time spent up to now is      258.3 secs
+
+     total energy              =    -372.34802764 Ry
+     Harris-Foulkes estimate   =    -372.34802780 Ry
+     estimated scf accuracy    <       0.00000824 Ry
+
+     iteration # 71     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  5.2
+
+     total cpu time spent up to now is      261.2 secs
+
+     total energy              =    -372.34803015 Ry
+     Harris-Foulkes estimate   =    -372.34803033 Ry
+     estimated scf accuracy    <       0.00001020 Ry
+
+     iteration # 72     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  6.1
+
+     total cpu time spent up to now is      264.6 secs
+
+     total energy              =    -372.34803284 Ry
+     Harris-Foulkes estimate   =    -372.34803306 Ry
+     estimated scf accuracy    <       0.00000844 Ry
+
+     iteration # 73     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  7.0
+
+     total cpu time spent up to now is      268.2 secs
+
+     total energy              =    -372.34803470 Ry
+     Harris-Foulkes estimate   =    -372.34803517 Ry
+     estimated scf accuracy    <       0.00001225 Ry
+
+     iteration # 74     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  4.9
+
+     total cpu time spent up to now is      271.3 secs
+
+     total energy              =    -372.34803614 Ry
+     Harris-Foulkes estimate   =    -372.34803614 Ry
+     estimated scf accuracy    <       0.00001502 Ry
+
+     iteration # 75     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  4.5
+
+     total cpu time spent up to now is      273.8 secs
+
+     total energy              =    -372.34803672 Ry
+     Harris-Foulkes estimate   =    -372.34803774 Ry
+     estimated scf accuracy    <       0.00001635 Ry
+
+     iteration # 76     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  5.3
+
+     total cpu time spent up to now is      276.7 secs
+
+     total energy              =    -372.34804595 Ry
+     Harris-Foulkes estimate   =    -372.34803835 Ry
+     estimated scf accuracy    <       0.00001973 Ry
+
+     iteration # 77     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  5 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations = 12.1
+
+     total cpu time spent up to now is      282.4 secs
+
+     total energy              =    -372.34804800 Ry
+     Harris-Foulkes estimate   =    -372.34805068 Ry
+     estimated scf accuracy    <       0.00008735 Ry
+
+     iteration # 78     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations = 12.6
+
+     total cpu time spent up to now is      288.3 secs
+
+     total energy              =    -372.34805177 Ry
+     Harris-Foulkes estimate   =    -372.34805246 Ry
+     estimated scf accuracy    <       0.00001718 Ry
+
+     iteration # 79     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations = 14.6
+
+     total cpu time spent up to now is      295.0 secs
+
+     total energy              =    -372.34805819 Ry
+     Harris-Foulkes estimate   =    -372.34805822 Ry
+     estimated scf accuracy    <       0.00000142 Ry
+
+     iteration # 80     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  6.9
+
+     total cpu time spent up to now is      298.5 secs
+
+     total energy              =    -372.34806210 Ry
+     Harris-Foulkes estimate   =    -372.34806215 Ry
+     estimated scf accuracy    <       0.00000032 Ry
+
+     iteration # 81     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  2.70E-10,  avg # of iterations =  6.6
+
+     total cpu time spent up to now is      301.9 secs
+
+     total energy              =    -372.34806639 Ry
+     Harris-Foulkes estimate   =    -372.34806638 Ry
+     estimated scf accuracy    <       0.00000003 Ry
+
+     iteration # 82     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  7.2
+
+     total cpu time spent up to now is      305.0 secs
+
+     total energy              =    -372.34807311 Ry
+     Harris-Foulkes estimate   =    -372.34807307 Ry
+     estimated scf accuracy    <       0.00000021 Ry
+
+     iteration # 83     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  4.5
+
+     total cpu time spent up to now is      307.5 secs
+
+     total energy              =    -372.34808106 Ry
+     Harris-Foulkes estimate   =    -372.34808136 Ry
+     estimated scf accuracy    <       0.00000038 Ry
+
+     iteration # 84     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  6.2
+
+     total cpu time spent up to now is      310.7 secs
+
+     total energy              =    -372.34808862 Ry
+     Harris-Foulkes estimate   =    -372.34808822 Ry
+     estimated scf accuracy    <       0.00000217 Ry
+
+     iteration # 85     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  8.5
+
+     total cpu time spent up to now is      314.8 secs
+
+     total energy              =    -372.34809660 Ry
+     Harris-Foulkes estimate   =    -372.34809643 Ry
+     estimated scf accuracy    <       0.00000092 Ry
+
+     iteration # 86     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  5.9
+
+     total cpu time spent up to now is      318.0 secs
+
+     total energy              =    -372.34810171 Ry
+     Harris-Foulkes estimate   =    -372.34810382 Ry
+     estimated scf accuracy    <       0.00000112 Ry
+
+     iteration # 87     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations = 10.1
+
+     total cpu time spent up to now is      322.8 secs
+
+     total energy              =    -372.34810999 Ry
+     Harris-Foulkes estimate   =    -372.34810865 Ry
+     estimated scf accuracy    <       0.00000544 Ry
+
+     iteration # 88     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  9.9
+
+     total cpu time spent up to now is      327.2 secs
+
+     total energy              =    -372.34813007 Ry
+     Harris-Foulkes estimate   =    -372.34813068 Ry
+     estimated scf accuracy    <       0.00000395 Ry
+
+     iteration # 89     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  4.9
+
+     total cpu time spent up to now is      329.8 secs
+
+     total energy              =    -372.34813983 Ry
+     Harris-Foulkes estimate   =    -372.34813994 Ry
+     estimated scf accuracy    <       0.00000651 Ry
+
+     iteration # 90     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  3.3
+
+     total cpu time spent up to now is      331.7 secs
+
+     total energy              =    -372.34815143 Ry
+     Harris-Foulkes estimate   =    -372.34814916 Ry
+     estimated scf accuracy    <       0.00000774 Ry
+
+     iteration # 91     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations = 13.3
+
+     total cpu time spent up to now is      338.1 secs
+
+     total energy              =    -372.34816724 Ry
+     Harris-Foulkes estimate   =    -372.34816829 Ry
+     estimated scf accuracy    <       0.00000489 Ry
+
+     iteration # 92     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  6.7
+
+     total cpu time spent up to now is      341.2 secs
+
+     total energy              =    -372.34817451 Ry
+     Harris-Foulkes estimate   =    -372.34817413 Ry
+     estimated scf accuracy    <       0.00000735 Ry
+
+     iteration # 93     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is      343.5 secs
+
+     total energy              =    -372.34817965 Ry
+     Harris-Foulkes estimate   =    -372.34818132 Ry
+     estimated scf accuracy    <       0.00000894 Ry
+
+     iteration # 94     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  8.9
+
+     total cpu time spent up to now is      347.8 secs
+
+     total energy              =    -372.34818793 Ry
+     Harris-Foulkes estimate   =    -372.34818556 Ry
+     estimated scf accuracy    <       0.00001450 Ry
+
+     iteration # 95     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations = 11.9
+
+     total cpu time spent up to now is      353.4 secs
+
+     total energy              =    -372.34820022 Ry
+     Harris-Foulkes estimate   =    -372.34820054 Ry
+     estimated scf accuracy    <       0.00000856 Ry
+
+     iteration # 96     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  4.5
+
+     total cpu time spent up to now is      355.4 secs
+
+     total energy              =    -372.34820431 Ry
+     Harris-Foulkes estimate   =    -372.34820425 Ry
+     estimated scf accuracy    <       0.00001022 Ry
+
+     iteration # 97     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  7.1
+
+     total cpu time spent up to now is      358.5 secs
+
+     total energy              =    -372.34820772 Ry
+     Harris-Foulkes estimate   =    -372.34820725 Ry
+     estimated scf accuracy    <       0.00001126 Ry
+
+     iteration # 98     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  6.6
+
+     total cpu time spent up to now is      361.5 secs
+
+     total energy              =    -372.34821037 Ry
+     Harris-Foulkes estimate   =    -372.34821005 Ry
+     estimated scf accuracy    <       0.00001027 Ry
+
+     iteration # 99     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  4.1
+
+     total cpu time spent up to now is      363.9 secs
+
+     total energy              =    -372.34821299 Ry
+     Harris-Foulkes estimate   =    -372.34821201 Ry
+     estimated scf accuracy    <       0.00000988 Ry
+
+     iteration #100     ecut=    60.00 Ry     beta=0.70
+     CG style diagonalization
+     c_bands:  1 eigenvalues not converged
+     c_bands:  1 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  2 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  5 eigenvalues not converged
+     c_bands:  4 eigenvalues not converged
+     c_bands:  3 eigenvalues not converged
+     ethr =  6.57E-11,  avg # of iterations =  8.1
+
+     total cpu time spent up to now is      367.9 secs
+
+     total energy              =    -372.34821442 Ry
+     Harris-Foulkes estimate   =    -372.34821413 Ry
+     estimated scf accuracy    <       0.00001102 Ry
+
+     End of self-consistent calculation
+
+     convergence NOT achieved after 100 iterations: stopping
+
+     Writing output data file Element-Pr.q.save
+ 
+     init_run     :      1.18s CPU      1.47s WALL (       1 calls)
+     electrons    :    244.94s CPU    362.62s WALL (       3 calls)
+     update_pot   :      0.69s CPU      0.70s WALL (       2 calls)
+     forces       :      0.42s CPU      0.45s WALL (       2 calls)
+     stress       :      0.76s CPU      0.81s WALL (       2 calls)
+
+     Called by init_run:
+     wfcinit      :      0.77s CPU      1.04s WALL (       1 calls)
+     potinit      :      0.15s CPU      0.16s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :    228.63s CPU    296.68s WALL (     127 calls)
+     sum_band     :     14.33s CPU     19.93s WALL (     127 calls)
+     v_of_rho     :      0.19s CPU      0.23s WALL (     130 calls)
+     mix_rho      :      0.37s CPU      0.41s WALL (     127 calls)
+
+     Called by c_bands:
+     init_us_2    :      1.32s CPU      1.76s WALL (    3108 calls)
+     ccgdiagg     :    190.82s CPU    243.11s WALL (    1636 calls)
+     wfcrot       :     37.25s CPU     52.42s WALL (    1636 calls)
+
+     Called by *cgdiagg:
+     h_psi        :    179.04s CPU    236.15s WALL (  218013 calls)
+     cdiaghg      :      3.27s CPU      5.87s WALL (    1636 calls)
+
+     Called by h_psi:
+     add_vuspsi   :     10.88s CPU     14.92s WALL (  218013 calls)
+
+     General routines
+     calbec       :     28.88s CPU     34.95s WALL (  434438 calls)
+     fft          :      0.22s CPU      0.29s WALL (     530 calls)
+     fftw         :    151.61s CPU    200.68s WALL (  582606 calls)
+     davcio       :      0.87s CPU      1.74s WALL (    4632 calls)
+ 
+     Parallel routines
+     fft_scatter  :     61.65s CPU     76.92s WALL (  583136 calls)
+ 
+     PWSCF        :  4m 8.27s CPU     6m 7.96s WALL
+
+ 
+   This run was terminated on:  10:17:48  23Mar2018            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=

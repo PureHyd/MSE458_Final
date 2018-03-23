@@ -1,0 +1,53 @@
+ &control
+    calculation = 'vc-relax',
+    restart_mode = 'from_scratch',
+    prefix = 'Element-Ce.q',
+    tstress = .true.,
+    tprnfor = .true.,
+    wf_collect = .false.
+    pseudo_dir = '/home/cwx6513/pp.La/',
+    outdir='./out'
+ /
+ &system
+    ibrav =  0,
+    nat =  1,
+    ntyp = 1,
+    ecutwfc = 60.0,
+    ecutrho = 240.0
+
+    occupations = 'smearing'
+    smearing = 'gaussian'
+    degauss = 0.1
+ /
+ &electrons
+    diagonalization='cg',
+    mixing_mode = 'plain',
+    mixing_beta = 0.7,
+    conv_thr =  1.0d-6
+ /
+ &ions
+    ion_dynamics='bfgs'
+    trust_radius_min = 1.0d-2
+ /
+ &cell
+    cell_dynamics='bfgs'
+    cell_factor=4.0
+ /
+
+
+ATOMIC_SPECIES
+   Ce  140.1160000000  Ce.UPF
+
+ATOMIC_POSITIONS crystal
+Ce      0.00000000000000      0.00000000000000      0.00000000000000
+
+K_POINTS automatic
+    11  12  13 0  0  0
+
+CELL_PARAMETERS
+     6.30762606763996      0.00000000000000      0.00000000000000
+     3.15381303381998      5.46256441214914      0.00000000000000
+     3.15381303381998      1.82085480404972      5.15015511799862
+
+
+
