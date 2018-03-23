@@ -1,0 +1,63 @@
+ from test_input_xml: Empty input file .. stopping
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+libmpi.so.1        00002ADB1CAFD1C7  Unknown               Unknown  Unknown
+libmpi.so.1        00002ADB1CA262D4  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002ADB24B32A3E  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002ADB24B3B798  Unknown               Unknown  Unknown
+libmpi.so.1        00002ADB1CA354E0  Unknown               Unknown  Unknown
+libmpi_f77.so.1    00002ADB1C7AC323  Unknown               Unknown  Unknown
+pw.x               0000000000785258  bcast_integer_            112  mp_base.f90
+pw.x               0000000000768C97  mp_mp_mp_bcast_i1         298  mp.f90
+pw.x               00000000007B4339  read_input_mp_rea          51  read_input.f90
+pw.x               0000000000441336  MAIN__                     58  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002ADB1DD40B35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+libmpi.so.1        00002B1A258F21BB  Unknown               Unknown  Unknown
+libmpi.so.1        00002B1A2581B2D4  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002B1A2D927A3E  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002B1A2D930798  Unknown               Unknown  Unknown
+libmpi.so.1        00002B1A2582A4E0  Unknown               Unknown  Unknown
+libmpi_f77.so.1    00002B1A255A1323  Unknown               Unknown  Unknown
+pw.x               0000000000785258  bcast_integer_            112  mp_base.f90
+pw.x               0000000000768C97  mp_mp_mp_bcast_i1         298  mp.f90
+pw.x               00000000007B4339  read_input_mp_rea          51  read_input.f90
+pw.x               0000000000441336  MAIN__                     58  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002B1A26B35B35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+mca_btl_sm.so      00002B25D1B0C0E3  Unknown               Unknown  Unknown
+libmpi.so.1        00002B25CA991242  Unknown               Unknown  Unknown
+libmpi.so.1        00002B25CA8BA2D4  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002B25D29C6A3E  Unknown               Unknown  Unknown
+mca_coll_tuned.so  00002B25D29CF798  Unknown               Unknown  Unknown
+libmpi.so.1        00002B25CA8C94E0  Unknown               Unknown  Unknown
+libmpi_f77.so.1    00002B25CA640323  Unknown               Unknown  Unknown
+pw.x               0000000000785258  bcast_integer_            112  mp_base.f90
+pw.x               0000000000768C97  mp_mp_mp_bcast_i1         298  mp.f90
+pw.x               00000000007B4339  read_input_mp_rea          51  read_input.f90
+pw.x               0000000000441336  MAIN__                     58  pwscf.f90
+pw.x               00000000004411FC  Unknown               Unknown  Unknown
+libc.so.6          00002B25CBBD4B35  Unknown               Unknown  Unknown
+pw.x               00000000004410F9  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 31617 on
+node qnode4153 exiting improperly. There are two reasons this could occur:
+
+1. this process did not call "init" before exiting, but others in
+the job did. This can cause a job to hang indefinitely while it waits
+for all processes to call "init". By rule, if one process calls "init",
+then ALL processes must call "init" prior to termination.
+
+2. this process called "init", but exited without calling "finalize".
+By rule, all processes that call "init" MUST call "finalize" prior to
+exiting or it will be considered an "abnormal termination"
+
+This may have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
