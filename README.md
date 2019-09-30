@@ -3,6 +3,9 @@ MSE 458 for Juncen and Chulin
 
 Result: Found **31** new intermetallic compounds of rare-earth metals that are stable
 
+Final report: https://github.com/PureHyd/MSE458_Final/blob/master/458Final_Extra.pdf
+
+# Git Cheatsheet
 1. Download
 > git clone https://github.com/PureHyd/MSE458_Final.git
 
